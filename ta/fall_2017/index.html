@@ -23,5 +23,33 @@
         <li><a href="/ta/fall_2017/p207_f17_gpwk_soln/p207_f17_wk10b_3_soln.pdf">
                 Week 10b problem 3</a></li>
     </ul>
+    <script>
+        var COLOR_CHANGE_INTERVAL = 100
+        var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var h1 = document.getElementsByTagName("h1");
+        var h2 = document.getElementsByTagName("h2");
+        function getDifferentRandomColor(text) {
+            var i = COLORS.indexOf(text.style.color);
+            i = (i + 1 + Math.floor(Math.random() * (COLORS.length - 1))) % COLORS.length;
+             return COLORS[i];
+        }
+        function randomColorize(headings) {
+            for (var i=0; i<headings.length; i++) {
+                headings[i].style.color = getDifferentRandomColor(headings[i]);
+            }
+        }
+        function randomlyColorizeHeadings() {
+            randomColorize(h1);
+            randomColorize(h2);
+        }
+        function pleaseStop() {
+            emoji = document.getElementsByClassName("flying-emoji");
+            for (var i=0; i<emoji.length; i++) {
+                emoji[i].style.display = "none";
+            }
+            window.clearInterval(KILL_ME_NOW)
+        }
+        KILL_ME_NOW = window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
+    </script>
     </body>
 </html>
