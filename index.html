@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The Jeff Lazar Zone</title>
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-    </head>
-    <body>
-        <nav>
-        <ul>
-            <li><a href="/">Home</a></li>                  
-            <li><a href="/about">About</a></li>
-            <li><a href="/ta">TA Stuff</a></li>
+
+<head>
+  <title>The Jeff Lazar Zone</title>
+  <link rel="icon" type="image/png" href="https://www.freefavicon.com/freefavicons/icons/atom-icon-152-242415.png">
+  <meta charset="UTF-8" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- particles.js container -->
+  <div id="particles-js" style="position:absolute;top:0;left:0;"></div>
+  <div class="on-top">
+    <div style="container-fluid text-center">
+      <nav role="navigation" class="nav-padding">
+        <ul class="nav nav-pills nav-justified colored-pill dark-pill" style="display: inline-block;">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/ta">TA Stuff</a></li>
         </ul>
-        </nav>
-        <div class="container">
-        <div class="blurb">
-            <h1>Hi there, I'm Jeff Lazar</h1>
-                <p>I'm a physics PhD student at University of Wisconsin! I
-                like clothes, math, and pretty things more generally</a></p>
-        </div><!-- /.blurb -->
-        </div><!-- /.container -->
-        <footer>
-        <ul>
-            <li><a href="mailto:webmaster@jefflazar.zone">email</a></li>
-        </ul>
-        </footer>
-        <!--<script scr="https://cdn.rawgit.com/jlazar17/jlazar17.github.io/master/randomColorText.js"></script>-->
-        <script>
-            var COLOR_CHANGE_INTERVAL = 100
-            var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-            var h1 = document.getElementsByTagName("h1");
-            var h2 = document.getElementsByTagName("h2");
-            function getDifferentRandomColor(text) {
-                var i = COLORS.indexOf(text.style.color);
-                i = (i + 1 + Math.floor(Math.random() * (COLORS.length - 1))) % COLORS.length;
-                return COLORS[i];
-            }
-            function randomColorize(headings) {
-                for (var i=0; i<headings.length; i++) {
-                    headings[i].style.color = getDifferentRandomColor(headings[i]);
-                }
-            }
-            function randomlyColorizeHeadings() {
-                randomColorize(h1);
-                randomColorize(h2);
-            }
-            function pleaseStop() {
-                emoji = document.getElementsByClassName("flying-emoji");
-                for (var i=0; i<emoji.length; i++) {
-                    emoji[i].style.display = "none";
-                }
-                window.clearInterval(KILL_ME_NOW)
-            }
-            KILL_ME_NOW = window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
-        </script>
-    </body>
+      </nav>
+    </div>
+    <div style="padding-top:30px"></div>
+      <div class="container jumbotron big-boi">
+        <h1>Hi there, I'm Jeff Lazar</h1>
+        <p>I'm a physics PhD student at University of Wisconsin! I like clothes, math, and pretty things more generally
+        </p>
+      </div>
+  </div>
+  <footer class="on-top">
+    <div class="container" style="z-index: 10;position: relative;">
+      <center>
+      <div>
+        <i> <a href = "https://www.linkedin.com/in/thematthewwolff/">
+                    <img src = "https://matthewwolff.github.io/images/li.png" width = "5%" height = "5%"></a></i>
+        <i> <a href = "mailto:webmaster@jefflazar.zone?Subject=Hello, Jeff!">
+                    <img src = "https://matthewwolff.github.io/images/email.png" width = "5%" height = "5%"> </a></i>
+        <i> <a href = "http://www.facebook.com/thematthewwolff">
+                    <img src = "https://matthewwolff.github.io/images/fb.png" width = "5%" height = "5%"></a></i>
+        <i> <a href = "http://www.github.com/jlazar17">
+                    <img src = "https://matthewwolff.github.io/images/git.png" width = "5%" height = "5%"></a></i>
+      </div>
+      <br><span id="footer_text"><script language = "Javascript">
+                document.write("Latest update: " + document.lastModified +"");
+                </script>
+                </span>
+      <br><span id="footer_text">&copy; 2017 Jeff Lazar</span>
+      </center>
+    </div>
+  </footer>
+
+  <!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="js/index.js "></script>
+</body>
+
 </html>

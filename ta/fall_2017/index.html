@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The Jeff Lazar Zone</title>
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-    </head>
-    <body>
-    <nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/ta">TA Stuff</a></li>
-    </ul>
-    </nav>
-    <h1>Physics 207, Fall 2017</h1>
-    <ul>
+
+<head>
+  <title>The Jeff Lazar Zone</title>
+  <link rel="icon" type="image/png" href="https://www.freefavicon.com/freefavicons/icons/atom-icon-152-242415.png">
+  <meta charset="UTF-8" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- particles.js container -->
+  <div id="particles-js" style="position:absolute;top:0;left:0;"></div>
+  <div class="on-top">
+    <div style="container-fluid text-center">
+      <nav role="navigation" class="nav-padding">
+        <ul class="nav nav-pills nav-justified colored-pill dark-pill" style="display: inline-block;">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/ta">TA Stuff</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div style="padding-top:30px"></div>
+    <div class="container jumbotron big-boi">
+      <center>
+        <h1>Physics 207, Fall 2017</h1>
+      </center>
+    </div>
+      <ul>
         <li><a href="/ta/fall_2017/p207_f17_gpwk_soln/p207_f17_wk10a_1_soln.pdf">
                 Week 10a problem 1</a></li>
         <li><a href="/ta/fall_2017/p207_f17_gpwk_soln/p207_f17_wk10a_3_soln.pdf">
@@ -27,34 +43,12 @@
         <li><a href="/ta/fall_2017/p207_f17_gpwk_soln/p207_f17_wk11a_2_soln.pdf">
                 Week 11a problem 2</a></li>
 
-    </ul>
-    <script>
-        var COLOR_CHANGE_INTERVAL = 100
-        var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-        var h1 = document.getElementsByTagName("h1");
-        var h2 = document.getElementsByTagName("h2");
-        function getDifferentRandomColor(text) {
-            var i = COLORS.indexOf(text.style.color);
-            i = (i + 1 + Math.floor(Math.random() * (COLORS.length - 1))) % COLORS.length;
-             return COLORS[i];
-        }
-        function randomColorize(headings) {
-            for (var i=0; i<headings.length; i++) {
-                headings[i].style.color = getDifferentRandomColor(headings[i]);
-            }
-        }
-        function randomlyColorizeHeadings() {
-            randomColorize(h1);
-            randomColorize(h2);
-        }
-        function pleaseStop() {
-            emoji = document.getElementsByClassName("flying-emoji");
-            for (var i=0; i<emoji.length; i++) {
-                emoji[i].style.display = "none";
-            }
-            window.clearInterval(KILL_ME_NOW)
-        }
-        KILL_ME_NOW = window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
-    </script>
-    </body>
+      </ul>
+  </div>
+  <!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="js/index.js "></script>
+</body>
+
 </html>
