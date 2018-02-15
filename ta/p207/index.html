@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Jeff Lazar Zone</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+    </head>
+    <body>
+    <nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/ta">TA Stuff</a></li>
+    </ul>
+    </nav>
+    <h1>Physics 207, Fall 2017</h1>
+    <h2>Group work solution</h2>
+    <ul>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk10a_1_soln.pdf">
+                Week 10a problem 1</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk10a_3_soln.pdf">
+                Week 10a problem 3</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk10b_1_soln.pdf">
+                Week 10b problem 1</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk10b_3_soln.pdf">
+                Week 10b problem 3</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk11a_1_soln.pdf">
+                Week 11a problem 1</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk11a_2_soln.pdf">
+                Week 11a problem 2</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk12a_2_soln.pdf">
+                Week 12a problem 2</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk12a_3_soln.pdf">
+                Week 12a problem 3</a></li>
+        <li><a href="/ta/fall_2017/discussions_solution/p207_f17_wk13a_2_soln.pdf">
+                Week 13a problem 2</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f17_wk13a_4_soln.pdf">
+                Week 13a problem 4</a></li>
+    </ul>
+    <h2>Previous exam solution</h2>
+    <ul>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f10_exam3_soln.pdf">
+                Fall 2010 Midterm 3 Solution</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_f15_final_soln.pdf">
+                Fall 2015 Final Exam Solution</a></li>
+        <li><a href="/ta/fall_2017/discussion_solutions/p207_s16_final_soln.pdf">
+                Spring 2016 Final Exam Solution</a></li>
+    </ul>
+    <script>
+        var COLOR_CHANGE_INTERVAL = 100
+        var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var h1 = document.getElementsByTagName("h1");
+        var h2 = document.getElementsByTagName("h2");
+        function getDifferentRandomColor(text) {
+            var i = COLORS.indexOf(text.style.color);
+            i = (i + 1 + Math.floor(Math.random() * (COLORS.length - 1))) % COLORS.length;
+             return COLORS[i];
+        }
+        function randomColorize(headings) {
+            for (var i=0; i<headings.length; i++) {
+                headings[i].style.color = getDifferentRandomColor(headings[i]);
+            }
+        }
+        function randomlyColorizeHeadings() {
+            randomColorize(h1);
+            randomColorize(h2);
+        }
+        function pleaseStop() {
+            emoji = document.getElementsByClassName("flying-emoji");
+            for (var i=0; i<emoji.length; i++) {
+                emoji[i].style.display = "none";
+            }
+            window.clearInterval(KILL_ME_NOW)
+        }
+        KILL_ME_NOW = window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
+    </script>
+    </body>
+</html>
