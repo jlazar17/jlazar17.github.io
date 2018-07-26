@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Research"
+AuthUserFile /research/.htpasswd
+require valid-user
