@@ -1,14 +1,9 @@
 body, html {
     margin: 60px auto;
     width: 65%;
-}
-
-.bg {
-    background-image: url("images/white-concrete-wall.jpg");
+    background-image: "images/white-concrete-wall.jpg";
     height:100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
