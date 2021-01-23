@@ -1,7 +1,17 @@
-body {
+body, html {
     margin: 60px auto;
-    width: 70%;
+    width: 100%;
 }
+
+.bg {
+    background-image: url("/images/white-concrete-wall.jpg");
+    height:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
