@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV &mdash; Jeffrey Lazar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="window">
+    <div class="title-bar">
+        <div class="dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+        </div>
+        <span class="title-text">jlazar@uclouvain: ~/cv</span>
+    </div>
+    <div class="body">
+
+        <nav class="nav">
+            <span class="ps">$</span>
+            <a href="index.html">~/home</a>
+            <span class="sep">/</span>
+            <a href="research.html">research</a>
+            <span class="sep">/</span>
+            <a href="publications.html">publications</a>
+            <span class="sep">/</span>
+            <a href="cv.html" class="active">cv</a>
+        </nav>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/cv</span><span class="dollar"> $</span>
+                <span class="c">ls -lh cv.pdf</span>
+            </span>
+        </div>
+        <div class="out">
+            <table class="ls-table">
+                <tr>
+                    <td class="perms">-rw-r--r--</td>
+                    <td class="file"><a href="cv.pdf" target="_blank">cv.pdf</a></td>
+                    <td style="padding-left: 16px;" class="muted"># download</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/cv</span><span class="dollar"> $</span>
+                <span class="c">cat summary.txt</span>
+            </span>
+        </div>
+        <div class="out">
+
+            <div class="section-hdr"># Positions</div>
+            <table style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="padding-right: 16px; color: var(--yellow); white-space: nowrap; vertical-align: top;">2023 &ndash;</td>
+                    <td>Postdoctoral Researcher &middot; CP3, Universit&eacute; catholique de Louvain, Belgium</td>
+                </tr>
+            </table>
+
+            <div class="section-hdr" style="margin-top: 16px;"># Education</div>
+            <table style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="padding-right: 16px; color: var(--yellow); white-space: nowrap; vertical-align: top;">Ph.D.</td>
+                    <td>Physics &middot; University of Wisconsin&ndash;Madison</td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 16px; color: var(--yellow); white-space: nowrap; vertical-align: top;">B.S.</td>
+                    <td class="muted">[update me]</td>
+                </tr>
+            </table>
+
+            <div class="section-hdr" style="margin-top: 16px;"># Collaborations</div>
+            IceCube Neutrino Observatory &nbsp;&middot;&nbsp;
+            TAMBO &nbsp;&middot;&nbsp;
+            CHIPS
+
+            <div class="section-hdr" style="margin-top: 16px;"># Selected Software</div>
+            <table style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="padding-right: 16px; white-space: nowrap; vertical-align: top; color: var(--orange);">Prometheus</td>
+                    <td>Open-source neutrino telescope simulation &mdash; <a href="https://github.com/Harvard-Neutrino/prometheus" target="_blank">GitHub</a></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 16px; white-space: nowrap; vertical-align: top; color: var(--orange);">TauRunner</td>
+                    <td>Lepton propagation through Earth &mdash; <a href="https://github.com/NuPropagator/taurunner" target="_blank">GitHub</a></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 16px; white-space: nowrap; vertical-align: top; color: var(--orange);">&chi;ar&omicron;&nu;</td>
+                    <td>Neutrino flux from WIMP annihilation &mdash; <a href="https://arxiv.org/abs/2007.15010" target="_blank">arXiv</a></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/cv</span><span class="dollar"> $</span>
+                <span class="cursor"></span>
+            </span>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

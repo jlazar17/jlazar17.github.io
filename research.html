@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research &mdash; Jeffrey Lazar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="window">
+    <div class="title-bar">
+        <div class="dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+        </div>
+        <span class="title-text">jlazar@uclouvain: ~/research</span>
+    </div>
+    <div class="body">
+
+        <nav class="nav">
+            <span class="ps">$</span>
+            <a href="index.html">~/home</a>
+            <span class="sep">/</span>
+            <a href="research.html" class="active">research</a>
+            <span class="sep">/</span>
+            <a href="publications.html">publications</a>
+            <span class="sep">/</span>
+            <a href="cv.html">cv</a>
+        </nav>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/research</span><span class="dollar"> $</span>
+                <span class="c">cat overview.md</span>
+            </span>
+        </div>
+        <div class="out">
+            My research sits at the intersection of high-energy astrophysics, particle
+            physics, and computational methods. I focus primarily on understanding the
+            high-energy universe through neutrinos &mdash; weakly interacting particles that
+            travel cosmological distances unimpeded and carry information about their sources.
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/research</span><span class="dollar"> $</span>
+                <span class="c">ls -la topics/</span>
+            </span>
+        </div>
+        <div class="out">
+
+            <div class="research-item">
+                <div class="ri-title">neutrino_telescopes/</div>
+                <div>
+                    I work with the <a href="https://icecube.wisc.edu" target="_blank">IceCube</a>
+                    neutrino telescope at the South Pole and contribute to next-generation
+                    detectors including <a href="https://arxiv.org/abs/2507.08070" target="_blank">TAMBO</a>.
+                    My focus includes solar neutrino searches, dark matter annihilation signals,
+                    and supernova neutrino transients.
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="ri-title">simulation_tools/</div>
+                <div>
+                    I develop open-source software for the neutrino physics community.
+                    <a href="https://github.com/Harvard-Neutrino/prometheus" target="_blank">Prometheus</a>
+                    is a modular neutrino telescope simulation suite, and
+                    <a href="https://github.com/NuPropagator/taurunner" target="_blank">TauRunner</a>
+                    propagates tau and muon neutrinos through the Earth. Both are publicly available
+                    and used by the community.
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="ri-title">dark_matter/</div>
+                <div>
+                    I search for dark matter annihilation and scattering signatures in solar
+                    neutrino data from IceCube, placing limits on WIMP-nucleon cross sections.
+                    I also developed <a href="https://arxiv.org/abs/2007.15010" target="_blank">&chi;ar&omicron;&nu;</a>,
+                    a public tool for generating neutrino flux spectra from WIMP annihilation in the Sun.
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="ri-title">ml_reconstruction/</div>
+                <div>
+                    I apply machine learning &mdash; including graph neural networks and sparse
+                    convolutional architectures &mdash; to neutrino event reconstruction in IceCube.
+                    I contributed to <a href="https://arxiv.org/abs/2511.13111" target="_blank">NuBench</a>,
+                    an open benchmark for deep-learning-based reconstruction in neutrino telescopes.
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="ri-title">quantum_computing/</div>
+                <div>
+                    I explore quantum algorithms for high-energy physics data analysis, including
+                    quantum-encoded data representations for neutrino oscillation measurements
+                    (<a href="https://arxiv.org/abs/2402.19306" target="_blank">arXiv:2402.19306</a>).
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/research</span><span class="dollar"> $</span>
+                <span class="c">cat collaborations.txt</span>
+            </span>
+        </div>
+        <div class="out">
+            IceCube Neutrino Observatory &nbsp;&middot;&nbsp;
+            CP3 (UCLouvain) &nbsp;&middot;&nbsp;
+            Harvard NuGroup (C. Arg&uuml;elles) &nbsp;&middot;&nbsp;
+            TAMBO Collaboration &nbsp;&middot;&nbsp;
+            University of Wisconsin&ndash;Madison
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/research</span><span class="dollar"> $</span>
+                <span class="cursor"></span>
+            </span>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

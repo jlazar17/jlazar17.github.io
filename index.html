@@ -1,30 +1,125 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>The Jeff Lazar Zone</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script src="js/randomColorText.js"></script>
-  </head>
-  <body>
-    <nav>
-    <ul>
-      <li><a href="/">Home</a></li>                  
-      <li><a href="https://github.com/jlazar17/">Code</a></li>
-      <li><a href="/research">Research</a></li>
-      <li><a href="/jlazar_CV">CV</a></li>
-    </ul>
-    </nav>
-    <div class="container">
-    <div class="blurb">
-      <h1>Hi there, I'm Jeff Lazar</h1>
-        <p>I'm a physics PhD student at University of Wisconsin! I
-        like clothes, math, and pretty things more generally</a></p>
-    </div><!-- /.blurb -->
-    </div><!-- /.container -->
-    <footer>
-    <ul>
-      <li><a href="mailto:jlazar@icecube.wisc.edu">email</a></li>
-    </ul>
-    </footer>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Lazar — Physicist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="window">
+    <div class="title-bar">
+        <div class="dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+        </div>
+        <span class="title-text">jlazar@uclouvain: ~</span>
+    </div>
+    <div class="body">
+
+        <nav class="nav">
+            <span class="ps">$</span>
+            <a href="index.html" class="active">~/home</a>
+            <span class="sep">/</span>
+            <a href="research.html">research</a>
+            <span class="sep">/</span>
+            <a href="publications.html">publications</a>
+            <span class="sep">/</span>
+            <a href="cv.html">cv</a>
+        </nav>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~</span><span class="dollar"> $</span>
+                <span class="c">whoami</span>
+            </span>
+        </div>
+        <div class="out">
+            <strong>Jeffrey P. Lazar</strong><br>
+            Postdoctoral Researcher &middot; <span class="cyan">CP3 &mdash; Centre for Cosmology, Particle Physics and Phenomenology</span><br>
+            Universit&eacute; catholique de Louvain, Belgium
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~</span><span class="dollar"> $</span>
+                <span class="c">cat bio.txt</span>
+            </span>
+        </div>
+        <div class="out">
+            I am a postdoctoral researcher at CP3 (UCLouvain) working on high-energy
+            neutrino astrophysics. My research spans neutrino telescope simulation,
+            machine-learning-based event reconstruction, and searches for new physics
+            &mdash; including dark matter &mdash; using IceCube and next-generation detectors.<br><br>
+            Previously: Ph.D., University of Wisconsin&ndash;Madison
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~</span><span class="dollar"> $</span>
+                <span class="c">ls</span>
+            </span>
+        </div>
+        <div class="out">
+            <table class="ls-table">
+                <tr>
+                    <td class="perms">drwxr-xr-x</td>
+                    <td class="dir"><a href="research.html">research/</a></td>
+                </tr>
+                <tr>
+                    <td class="perms">drwxr-xr-x</td>
+                    <td class="dir"><a href="publications.html">publications/</a></td>
+                </tr>
+                <tr>
+                    <td class="perms">-rw-r--r--</td>
+                    <td class="file"><a href="cv.html">cv.pdf</a></td>
+                </tr>
+                <tr>
+                    <td class="perms">-rw-r--r--</td>
+                    <td class="file">contact.txt</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~</span><span class="dollar"> $</span>
+                <span class="c">cat contact.txt</span>
+            </span>
+        </div>
+        <div class="out">
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding-right: 20px;" class="muted">email</td>
+                    <td><a href="mailto:jeff.p.lazar@gmail.com">jeff.p.lazar@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td class="muted">github</td>
+                    <td><a href="https://github.com/jlazar17" target="_blank">github.com/jlazar17</a></td>
+                </tr>
+                <tr>
+                    <td class="muted">inspire</td>
+                    <td><a href="https://inspirehep.net/authors?sort=mostrecent&size=25&page=1&q=Jeff%20Lazar" target="_blank">INSPIRE-HEP</a></td>
+                </tr>
+                <tr>
+                    <td class="muted">arxiv</td>
+                    <td><a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cmd">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~</span><span class="dollar"> $</span>
+                <span class="cursor"></span>
+            </span>
+        </div>
+
+    </div>
+</div>
+</body>
 </html>
