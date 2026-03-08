@@ -1,0 +1,4 @@
+# Featured collaboration papers
+# These are always shown regardless of the "hide collab papers" toggle.
+# Add one arXiv ID per line. Lines starting with # are ignored.
+

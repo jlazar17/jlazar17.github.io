@@ -10,6 +10,7 @@ Requires no third-party libraries (stdlib only).
 
 import json
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -17,12 +18,30 @@ INSPIRE_BAI   = "Jeffrey.Lazar.1"
 HEADERS       = {"User-Agent": "jlazar-website-updater/1.0"}
 OUTPUT        = Path(__file__).resolve().parent.parent / "publications.html"
 
+# Collaboration papers older than this many years are dropped entirely.
+# Own (few-author) papers are always kept regardless of age.
+COLLAB_YEARS_CUTOFF = 3
+
+FEATURED_FILE = Path(__file__).resolve().parent / "featured_collabs.txt"
+
+
+def load_featured() -> set:
+    """Return set of arXiv IDs that should always be shown."""
+    if not FEATURED_FILE.exists():
+        return set()
+    ids = set()
+    for line in FEATURED_FILE.read_text().splitlines():
+        line = line.split("#")[0].strip()
+        if line:
+            ids.add(line)
+    return ids
+
 # Exclude `authors` here — large collaboration papers have 400+ authors and
 # blow up the response. We fetch authors separately for non-collaboration papers.
 INSPIRE_URL = (
     "https://inspirehep.net/api/literature"
     "?sort=mostrecent"
-    "&size=100"
+    "&size=1000"
     "&page=1"
     f"&q=a+{INSPIRE_BAI}"
     "&fields=titles,arxiv_eprints,publication_info,"
@@ -105,7 +124,7 @@ def format_venue(pub_info: list, dois: list) -> str:
     return f'<span class="journal">{text}</span>'
 
 
-def pub_html(meta: dict, inspire_id: str) -> str:
+def pub_html(meta: dict, inspire_id: str, featured: set = frozenset()) -> str:
     title        = meta.get("titles", [{}])[0].get("title", "Untitled")
     year         = (meta.get("earliest_date") or "0000")[:4]
     arxivs       = meta.get("arxiv_eprints", [])
@@ -128,7 +147,7 @@ def pub_html(meta: dict, inspire_id: str) -> str:
     if arxiv:
         arxiv_link = f'<a href="https://arxiv.org/abs/{arxiv}" target="_blank">arXiv:{arxiv}</a>'
 
-    is_collab = bool(collabs) or author_count > 10
+    is_collab = (bool(collabs) or author_count > 10) and arxiv not in featured
     collab_attr = ' data-collab="true"' if is_collab else ""
 
     return f"""\
@@ -150,10 +169,10 @@ PROMPT = """\
                 <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>\
 """
 
-def render(pubs_by_year: dict) -> str:
+def render(pubs_by_year: dict, featured: set = frozenset()) -> str:
     year_blocks = []
     for year in sorted(pubs_by_year.keys(), reverse=True):
-        entries = "\n".join(pub_html(p["metadata"], p["id"]) for p in pubs_by_year[year])
+        entries = "\n".join(pub_html(p["metadata"], p["id"], featured) for p in pubs_by_year[year])
         year_blocks.append(
             f'            <div class="section-hdr"># {year}</div>\n{entries}'
         )
@@ -204,25 +223,34 @@ def render(pubs_by_year: dict) -> str:
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
                 and
                 <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a></span>
-                <button id="collab-toggle" onclick="toggleCollabs()" class="toggle-btn">hide collaboration papers</button>
+                <button id="collab-toggle" onclick="toggleCollabs()" class="toggle-btn"></button>
             </div>
             <script>
-                (function() {{
-                    var hidden = localStorage.getItem('hideCollabs') === 'true';
-                    if (hidden) {{
-                        document.documentElement.classList.add('hide-collabs');
-                        document.addEventListener('DOMContentLoaded', function() {{
-                            var btn = document.getElementById('collab-toggle');
-                            if (btn) btn.textContent = 'show collaboration papers';
-                        }});
-                    }}
-                }})();
-                function toggleCollabs() {{
-                    var hidden = document.documentElement.classList.toggle('hide-collabs');
-                    localStorage.setItem('hideCollabs', hidden);
-                    document.getElementById('collab-toggle').textContent =
-                        hidden ? 'show collaboration papers' : 'hide collaboration papers';
+                var _ch = localStorage.getItem('hideCollabs') !== 'false';
+                function _apply() {{
+                    document.documentElement.classList.toggle('hide-collabs', _ch);
+                    var btn = document.getElementById('collab-toggle');
+                    if (btn) btn.textContent = _ch ? '[show collab papers]' : '[hide collab papers]';
                 }}
+                function _applyHeaders() {{
+                    document.querySelectorAll('.section-hdr').forEach(function(hdr) {{
+                        var sib = hdr.nextElementSibling;
+                        var visible = false;
+                        while (sib && sib.classList.contains('pub')) {{
+                            if (!_ch || !sib.hasAttribute('data-collab')) {{ visible = true; break; }}
+                            sib = sib.nextElementSibling;
+                        }}
+                        hdr.style.display = visible ? '' : 'none';
+                    }});
+                }}
+                function toggleCollabs() {{
+                    _ch = !_ch;
+                    localStorage.setItem('hideCollabs', String(_ch));
+                    _apply();
+                    _applyHeaders();
+                }}
+                _apply();
+                document.addEventListener('DOMContentLoaded', _applyHeaders);
             </script>
 
 {pubs_html}
@@ -247,15 +275,31 @@ def render(pubs_by_year: dict) -> str:
 
 def main():
     print("Fetching publications from INSPIRE-HEP...")
+    featured = load_featured()
+    print(f"  Featured papers: {featured or 'none'}")
+
     pubs = fetch_pubs()
     print(f"  Found {len(pubs)} records.")
 
-    by_year = defaultdict(list)
-    for pub in pubs:
-        year = (pub["metadata"].get("earliest_date") or "0000")[:4]
-        by_year[year].append(pub)
+    cutoff = datetime.now().year - COLLAB_YEARS_CUTOFF
 
-    html = render(by_year)
+    by_year = defaultdict(list)
+    n_dropped = 0
+    for pub in pubs:
+        meta         = pub["metadata"]
+        year         = int((meta.get("earliest_date") or "0000")[:4])
+        arxivs       = meta.get("arxiv_eprints", [])
+        arxiv        = arxivs[0].get("value") if arxivs else None
+        is_collab    = bool(meta.get("collaborations")) or meta.get("author_count", 0) > 10
+        if is_collab and year < cutoff and arxiv not in featured:
+            n_dropped += 1
+            continue
+        by_year[str(year)].append(pub)
+
+    print(f"  Dropped {n_dropped} collab papers older than {COLLAB_YEARS_CUTOFF} years.")
+    print(f"  Rendering {sum(len(v) for v in by_year.values())} records.")
+
+    html = render(by_year, featured)
     OUTPUT.write_text(html, encoding="utf-8")
     print(f"  Written to {OUTPUT}")
 

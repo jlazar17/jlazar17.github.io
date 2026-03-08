@@ -234,18 +234,16 @@ a:hover {
 /* Collaboration toggle */
 .toggle-btn {
     background: none;
-    border: 1px solid var(--border);
+    border: none;
     color: var(--muted);
     font-family: var(--font);
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 3px;
+    font-size: 13px;
+    padding: 0;
     cursor: pointer;
 }
 
 .toggle-btn:hover {
     color: var(--cyan);
-    border-color: var(--cyan);
 }
 
 .hide-collabs .pub[data-collab="true"] {
