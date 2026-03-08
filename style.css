@@ -231,6 +231,27 @@ a:hover {
 .orange { color: var(--orange); }
 .yellow { color: var(--yellow); }
 
+/* Collaboration toggle */
+.toggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.hide-collabs .pub[data-collab="true"] {
+    display: none;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
     body  { padding: 8px; }

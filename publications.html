@@ -39,15 +39,34 @@
             </span>
         </div>
         <div class="out">
-            <div class="muted" style="margin-bottom: 12px;">
-                # full list on
+            <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+                <span class="muted"># full list on
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
                 and
-                <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a>
+                <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a></span>
+                <button id="collab-toggle" onclick="toggleCollabs()" class="toggle-btn">hide collaboration papers</button>
             </div>
+            <script>
+                (function() {
+                    var hidden = localStorage.getItem('hideCollabs') === 'true';
+                    if (hidden) {
+                        document.documentElement.classList.add('hide-collabs');
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var btn = document.getElementById('collab-toggle');
+                            if (btn) btn.textContent = 'show collaboration papers';
+                        });
+                    }
+                })();
+                function toggleCollabs() {
+                    var hidden = document.documentElement.classList.toggle('hide-collabs');
+                    localStorage.setItem('hideCollabs', hidden);
+                    document.getElementById('collab-toggle').textContent =
+                        hidden ? 'show collaboration papers' : 'hide collaboration papers';
+                }
+            </script>
 
             <div class="section-hdr"># 2026</div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2026</div>
                 <div class="pub-body">
                     <div class="pub-title">Atmospheric neutrino constraints on Lorentz invariance violation with the first six detection units of KM3NeT/ORCA</div>
@@ -56,7 +75,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2603.04264" target="_blank">arXiv:2603.04264</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2026</div>
                 <div class="pub-body">
                     <div class="pub-title">Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics (ML-HEQUPP)</div>
@@ -65,7 +84,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2602.22248" target="_blank">arXiv:2602.22248</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2026</div>
                 <div class="pub-body">
                     <div class="pub-title">Evidence for neutrino emission from X-ray Bright Seyfert Galaxies in the Southern Hemisphere using Enhanced Starting Track Events with IceCube</div>
@@ -74,7 +93,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2602.10208" target="_blank">arXiv:2602.10208</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2026</div>
                 <div class="pub-body">
                     <div class="pub-title">Deep Search for Joint Sources of Gravitational Waves and High-Energy Neutrinos with IceCube During the Third Observing Run of LIGO and Virgo</div>
@@ -85,7 +104,7 @@
             </div>
 
             <div class="section-hdr"># 2025</div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Constraining the Prompt Atmospheric Neutrino Flux Combining IceCube's Cascade and Track Samples</div>
@@ -94,7 +113,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2512.17760" target="_blank">arXiv:2512.17760</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Prompt Searches for Very-high-energy γ-Ray Counterparts to IceCube Astrophysical Neutrino Alerts</div>
@@ -103,7 +122,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2512.16562" target="_blank">arXiv:2512.16562</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Limits on GeV-scale WIMP Annihilation in Dwarf Spheroidals with IceCube DeepCore</div>
@@ -112,7 +131,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2511.19385" target="_blank">arXiv:2511.19385</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Optimizing the potential of KM3NeT in detecting core-collapse supernovae</div>
@@ -130,7 +149,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2511.13111" target="_blank">arXiv:2511.13111</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Blazars as a Potential Origin of the KM3-230213A Event</div>
@@ -139,7 +158,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2511.13886" target="_blank">arXiv:2511.13886</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for GeV-scale Dark Matter from the Galactic Center with IceCube-DeepCore</div>
@@ -148,7 +167,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2511.00918" target="_blank">arXiv:2511.00918</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Characterization of the Three-Flavor Composition of Cosmic Neutrinos with IceCube</div>
@@ -157,7 +176,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.24957" target="_blank">arXiv:2510.24957</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Constraints on the Correlation of IceCube Neutrinos with Tracers of Large-Scale Structure</div>
@@ -166,7 +185,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.18119" target="_blank">arXiv:2510.18119</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Evidence for Neutrino Emission from X-ray Bright Active Galactic Nuclei with IceCube</div>
@@ -175,7 +194,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.13403" target="_blank">arXiv:2510.13403</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Limiting the Parameter Space for Unstable eV-scale Neutrinos Using IceCube Data</div>
@@ -184,7 +203,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.00209" target="_blank">arXiv:2510.00209</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measuring the galactic plane and searching for galactic PeVatrons using the IceCube Multi-Flavor Astrophysical Neutrino sample</div>
@@ -193,7 +212,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Performance of the Prototype Station of the IceCube Surface Array Enhancement</div>
@@ -202,7 +221,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.14636" target="_blank">arXiv:2510.14636</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Spectrum of PeV Cosmic-Ray Protons and Helium Nuclei with IceCube</div>
@@ -211,7 +230,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2511.05284" target="_blank">arXiv:2511.05284</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Prospective Sensitity to WIMP Dark Matter with the IceCube Upgrade</div>
@@ -220,7 +239,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Heavy Dark Matter Annihilation search with IceCube tracks</div>
@@ -229,7 +248,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for decoherence due to quantum gravity with the IceCube Neutrino Observatory</div>
@@ -238,7 +257,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Current Status of TAMBO: Realizing PeV Neutrino Astronomy with a Cost-Effective Observatory</div>
@@ -247,7 +266,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Tracing Out The Neutrino Sky With TAMBO</div>
@@ -256,7 +275,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Improved Gamma-Hadron Separation for PeV Photon Searches with IceCube</div>
@@ -265,7 +284,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Analysis of the Galactic Astrophysical Flux with 12.1 Years of IceCube Starting Tracks, Throughgoing Tracks and Cascades</div>
@@ -274,7 +293,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Dark matter searches in the Galactic Center with IceCube-DeepCore and IceCube-Upgrade</div>
@@ -283,7 +302,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for High-Energy Neutrinos from Infrared Flares</div>
@@ -301,7 +320,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Characterizing IceTop response to low-energy air showers</div>
@@ -310,7 +329,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2510.10485" target="_blank">arXiv:2510.10485</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Evidence of Neutrino Emission from X-ray Bright Seyfert Galaxies with IceCube</div>
@@ -319,7 +338,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Multi-Energy and Multi-Sample Searches for IceCube Neutrinos from LIGO/Virgo/KAGRA Gravitational Wave Events</div>
@@ -328,7 +347,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Constraints on the Population of Common Sources of Gravitational Waves and High-Energy Neutrinos with IceCube During the Third Observing Run of the LIGO and Virgo Detectors</div>
@@ -337,7 +356,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2512.10707" target="_blank">arXiv:2512.10707</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">12-Years Observation of Seasonal Variation of Atmospheric Neutrino Flux with IceCube</div>
@@ -346,7 +365,7 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Constraining gamma-ray burst parameters with the first ultra-high energy neutrino event KM3-230213A</div>
@@ -355,7 +374,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.14895" target="_blank">arXiv:2509.14895</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Physics potential of the IceCube Upgrade for atmospheric neutrino oscillations</div>
@@ -364,7 +383,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.13066" target="_blank">arXiv:2509.13066</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Radio Detection of Cosmic Rays with the IceCube Surface Array Enhancement</div>
@@ -373,7 +392,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.13033" target="_blank">arXiv:2509.13033</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Archival Search for IceCube Sub-TeV Neutrino Counterparts to Sub-Threshold Gravitational Wave Events from the Third Observing Run of the LIGO-Virgo-KAGRA</div>
@@ -382,7 +401,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.13003" target="_blank">arXiv:2509.13003</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Muon number reconstruction with IceTop using a two-component lateral distribution function</div>
@@ -391,7 +410,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.13002" target="_blank">arXiv:2509.13002</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Commissioning and Testing of IceAct Telescopes at the IceCube Neutrino Observatory</div>
@@ -400,7 +419,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2509.09778" target="_blank">arXiv:2509.09778</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Identification and Denoising of Radio Signals from Cosmic-Ray Air Showers using Convolutional Neural Networks</div>
@@ -409,7 +428,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2508.14711" target="_blank">arXiv:2508.14711</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Investigation of Electromagnetic and Muonic Air-Shower Components using IceTop Simulations</div>
@@ -418,7 +437,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2508.08478" target="_blank">arXiv:2508.08478</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measurement of All Flavor PeV Neutrino Flux using Combined Datasets from IceCube</div>
@@ -427,7 +446,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2508.05886" target="_blank">arXiv:2508.05886</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">The LED calibration systems for the mDOM and D-Egg sensor modules of the IceCube Upgrade: Design, production, testing and use in module calibration</div>
@@ -436,7 +455,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2508.03822" target="_blank">arXiv:2508.03822</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Investigating Energy-Dependent Anisotropy in Cosmic Rays with IceTop Surface Array</div>
@@ -445,7 +464,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.23044" target="_blank">arXiv:2507.23044</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for Neutrinos from the Galactic 4FGL Sources with the Pion-bump Signature with IceCube</div>
@@ -454,7 +473,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.23040" target="_blank">arXiv:2507.23040</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Improved measurements of the TeV--PeV extragalactic neutrino spectrum from joint analyses of IceCube tracks and cascades</div>
@@ -463,7 +482,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.22234" target="_blank">arXiv:2507.22234</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Evidence for a Spectral Break or Curvature in the Spectrum of Astrophysical Neutrinos from 5 TeV--10 PeV</div>
@@ -472,7 +491,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.22233" target="_blank">arXiv:2507.22233</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Performance Study of the IceCube Upgrade Camera System</div>
@@ -481,7 +500,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.18525" target="_blank">arXiv:2507.18525</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Prospects for GeV Neutrino Transient Searches with the IceCube Upgrade</div>
@@ -499,7 +518,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.14943" target="_blank">arXiv:2507.14943</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Unfolding the Atmospheric Muon Flux with IceCube: Investigating Stopping Muons and High-Energy Prompt Contributions</div>
@@ -508,7 +527,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.14525" target="_blank">arXiv:2507.14525</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Probing neutrino emission at GeV energies from compact binary mergers detected during O1-O4a with the IceCube Neutrino Observatory</div>
@@ -517,7 +536,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.13698" target="_blank">arXiv:2507.13698</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Ultra-High-Energy Transient Source Search using IceCube Neutrinos and Pierre Auger Photon Candidates</div>
@@ -526,7 +545,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.10994" target="_blank">arXiv:2507.10994</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Enhancements to the IceCube Extremely High Energy Neutrino Selection using Graph & Transformer Based Neural Networks</div>
@@ -535,7 +554,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.11774" target="_blank">arXiv:2507.11774</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Updated Earth Tomography Using Atmospheric Neutrinos at IceCube</div>
@@ -544,7 +563,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.09763" target="_blank">arXiv:2507.09763</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Limits on WIMP-Scattering Cross Sections using Solar Neutrinos with Ten Years of IceCube Data</div>
@@ -553,7 +572,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08519" target="_blank">arXiv:2507.08519</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for High-Energy Neutrinos From the Sun Using Ten Years of IceCube Data</div>
@@ -571,7 +590,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08524" target="_blank">arXiv:2507.08524</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Time Variation in the TeV Cosmic Ray Anisotropy with IceCube and Energy Dependence of the Solar Dipole</div>
@@ -580,7 +599,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08242" target="_blank">arXiv:2507.08242</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">A co-deployed dust-logging instrument for the IceCube Upgrade and IceCube-Gen2</div>
@@ -589,7 +608,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08430" target="_blank">arXiv:2507.08430</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Astrophysical neutrino flux measurement and search for nutau induced cascades with 11 years of IceCube data</div>
@@ -598,7 +617,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08421" target="_blank">arXiv:2507.08421</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Prospects for sub-GeV astrophysical neutrino detection with IceCube</div>
@@ -607,7 +626,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08569" target="_blank">arXiv:2507.08569</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">IceCube searches for GeV neutrino counterparts associated with high-energy starting events</div>
@@ -616,7 +635,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08706" target="_blank">arXiv:2507.08706</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Advancements in the IceAct Energy Spectrum Analysis</div>
@@ -625,7 +644,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08779" target="_blank">arXiv:2507.08779</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Advances in reconstructing the cosmic-ray energy spectrum with IceTop</div>
@@ -634,7 +653,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08691" target="_blank">arXiv:2507.08691</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">All-flavor Time-dependent Search for Transient Neutrino Sources</div>
@@ -643,7 +662,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08775" target="_blank">arXiv:2507.08775</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Low-latency neutrino follow-up combining diverse IceCube selections</div>
@@ -652,7 +671,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08748" target="_blank">arXiv:2507.08748</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">The IceCube Collaboration -- Contributions to the 39th International Cosmic Ray Conference (ICRC2025)</div>
@@ -661,7 +680,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08666" target="_blank">arXiv:2507.08666</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">A search for extremely-high-energy neutrinos with IceCube and implications for the ultra-high-energy cosmic-ray proton fraction</div>
@@ -670,7 +689,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07497" target="_blank">arXiv:2507.07497</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Advanced Northern Tracks Selection using a Graph Convolutional Neural Network for the IceCube Neutrino Observatory</div>
@@ -679,7 +698,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07452" target="_blank">arXiv:2507.07452</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Classification of high energy muon bundles and single muons from the southern sky in IceCube</div>
@@ -688,7 +707,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07408" target="_blank">arXiv:2507.07408</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">New Public Neutrino Alerts for Clusters of IceCube Events</div>
@@ -697,7 +716,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07491" target="_blank">arXiv:2507.07491</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">TAMBO: A Deep-Valley Neutrino Observatory</div>
@@ -706,7 +725,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08070" target="_blank">arXiv:2507.08070</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measuring the Neutrino Flux in Segments along the Galactic Plane with IceCube</div>
@@ -715,7 +734,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08097" target="_blank">arXiv:2507.08097</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Enhancing searches for astrophysical neutrino sources in IceCube with machine learning and improved spatial modeling</div>
@@ -724,7 +743,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08132" target="_blank">arXiv:2507.08132</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Results from IceCube Searches for High-Energy Neutrinos Coincident with Gravitational-Wave Alerts in LVK O4</div>
@@ -733,7 +752,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08131" target="_blank">arXiv:2507.08131</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Very Late Afterpulses and Search for the Neutron Echo in IceCube</div>
@@ -742,7 +761,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07042" target="_blank">arXiv:2507.07042</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Impact of Hole-ice Calibration on High Energy Event Reconstruction with the IceCube Upgrade</div>
@@ -751,7 +770,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07062" target="_blank">arXiv:2507.07062</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Using End-to-End Optimized Summary Statistics to Improve IceCube's Diffuse Galactic Fits</div>
@@ -760,7 +779,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06666" target="_blank">arXiv:2507.06666</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Neutrino flavor composition using High Energy Starting Events with IceCube</div>
@@ -769,7 +788,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06835" target="_blank">arXiv:2507.06835</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Improvements in the Reconstruction of IceCube Realtime Alerts</div>
@@ -778,7 +797,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06957" target="_blank">arXiv:2507.06957</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for GeV-PeV neutrinos from nova T Coronae Borealis with IceCube</div>
@@ -787,7 +806,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07096" target="_blank">arXiv:2507.07096</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">A Search for Astrophysical Neutrinos from Flaring X-ray Binaries with IceCube</div>
@@ -796,7 +815,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06807" target="_blank">arXiv:2507.06807</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">IceCube population constraints on neutrino emission by Fermi-LAT detected active galactic nuclei</div>
@@ -805,7 +824,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07098" target="_blank">arXiv:2507.07098</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">All-Sky Cosmic-Ray Anisotropy Update at Multiple Energies</div>
@@ -814,7 +833,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07070" target="_blank">arXiv:2507.07070</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Results from IceCube Follow-up of Nearby Supernova SN2023ixf</div>
@@ -823,7 +842,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07097" target="_blank">arXiv:2507.07097</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measurement of the Three-Flavor Composition of Astrophysical Neutrinos with Contained IceCube Events</div>
@@ -832,7 +851,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07212" target="_blank">arXiv:2507.07212</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Status and performance of mass-produced IceCube Upgrade mDOMs</div>
@@ -841,7 +860,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07273" target="_blank">arXiv:2507.07273</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Determining the orientation of radio antennas at the South Pole using Galactic noise measurements</div>
@@ -850,7 +869,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07224" target="_blank">arXiv:2507.07224</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">All-sky Neutrino Point-source Search with IceCube Combined Track and Cascade Data</div>
@@ -859,7 +878,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07275" target="_blank">arXiv:2507.07275</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Combining IceCube Muon Tracks and Cascades to measure the Galactic Diffuse Neutrino Flux</div>
@@ -868,7 +887,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06089" target="_blank">arXiv:2507.06089</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Search for Sub-Relativistic Magnetic Monopoles with the IceCube Neutrino Observatory</div>
@@ -877,7 +896,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.05896" target="_blank">arXiv:2507.05896</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measurement of the Diffuse Astrophysical Neutrino Spectrum above a TeV with All Flavor Starting Events in IceCube</div>
@@ -886,7 +905,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06002" target="_blank">arXiv:2507.06002</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">IceCat-2: Updated IceCube Event Catalog of Alert Tracks</div>
@@ -895,7 +914,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06176" target="_blank">arXiv:2507.06176</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Mapping the ice stratigraphy in IceCube using camera deployment footage</div>
@@ -904,7 +923,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06330" target="_blank">arXiv:2507.06330</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">An updated list of target sources for IceCube neutrino cluster alerts</div>
@@ -913,7 +932,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06312" target="_blank">arXiv:2507.06312</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">State of the Ice Model in IceCube observatory</div>
@@ -922,7 +941,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.06341" target="_blank">arXiv:2507.06341</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">A Search for Millimeter-bright Blazars as Astrophysical Neutrino Sources</div>
@@ -931,7 +950,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.03989" target="_blank">arXiv:2507.03989</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">Measurement of the mean number of muons with energies above 500 GeV in air showers detected with the IceCube Neutrino Observatory</div>
@@ -940,7 +959,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2506.19241" target="_blank">arXiv:2506.19241</a></div>
                 </div>
             </div>
-            <div class="pub">
+            <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
                     <div class="pub-title">The online data filter for the KM3NeT neutrino telescopes</div>

@@ -128,8 +128,11 @@ def pub_html(meta: dict, inspire_id: str) -> str:
     if arxiv:
         arxiv_link = f'<a href="https://arxiv.org/abs/{arxiv}" target="_blank">arXiv:{arxiv}</a>'
 
+    is_collab = bool(collabs) or author_count > 10
+    collab_attr = ' data-collab="true"' if is_collab else ""
+
     return f"""\
-            <div class="pub">
+            <div class="pub"{collab_attr}>
                 <div class="pub-year">{year}</div>
                 <div class="pub-body">
                     <div class="pub-title">{title}</div>
@@ -196,12 +199,31 @@ def render(pubs_by_year: dict) -> str:
             </span>
         </div>
         <div class="out">
-            <div class="muted" style="margin-bottom: 12px;">
-                # full list on
+            <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+                <span class="muted"># full list on
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
                 and
-                <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a>
+                <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a></span>
+                <button id="collab-toggle" onclick="toggleCollabs()" class="toggle-btn">hide collaboration papers</button>
             </div>
+            <script>
+                (function() {{
+                    var hidden = localStorage.getItem('hideCollabs') === 'true';
+                    if (hidden) {{
+                        document.documentElement.classList.add('hide-collabs');
+                        document.addEventListener('DOMContentLoaded', function() {{
+                            var btn = document.getElementById('collab-toggle');
+                            if (btn) btn.textContent = 'show collaboration papers';
+                        }});
+                    }}
+                }})();
+                function toggleCollabs() {{
+                    var hidden = document.documentElement.classList.toggle('hide-collabs');
+                    localStorage.setItem('hideCollabs', hidden);
+                    document.getElementById('collab-toggle').textContent =
+                        hidden ? 'show collaboration papers' : 'hide collaboration papers';
+                }}
+            </script>
 
 {pubs_html}
 
