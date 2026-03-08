@@ -16,6 +16,24 @@
 }
 
 
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Belafonte Day (light) */
+        --bg: #d5ccba;
+        --surface: #cdc3af;
+        --overlay: #bfb5a0;
+        --border: #968c83;
+        --text: #45373c;
+        --muted: #5e5252;
+        --green: #858162;
+        --blue: #426a79;
+        --cyan: #5a7d8b;
+        --orange: #97522c;
+        --yellow: #8a4420;
+        --red: #be100e;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
