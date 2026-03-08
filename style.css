@@ -15,55 +15,6 @@
     --font: 'MesloLGS NF', 'MesloLGS Nerd Font', 'Meslo LG S', 'Fira Code', 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme]) {
-        /* Belafonte Day (light) */
-        --bg: #d5ccba;
-        --surface: #cdc3af;
-        --overlay: #bfb5a0;
-        --border: #968c83;
-        --text: #45373c;
-        --muted: #5e5252;
-        --green: #858162;
-        --blue: #426a79;
-        --cyan: #5a7d8b;
-        --orange: #97522c;
-        --yellow: #8a4420;
-        --red: #be100e;
-    }
-}
-
-html[data-theme="light"] {
-    /* Belafonte Day (light) */
-    --bg: #d5ccba;
-    --surface: #cdc3af;
-    --overlay: #bfb5a0;
-    --border: #968c83;
-    --text: #45373c;
-    --muted: #5e5252;
-    --green: #858162;
-    --blue: #426a79;
-    --cyan: #5a7d8b;
-    --orange: #97522c;
-    --yellow: #8a4420;
-    --red: #be100e;
-}
-
-html[data-theme="dark"] {
-    /* Belafonte Night (dark) */
-    --bg: #20111b;
-    --surface: #2b1b25;
-    --overlay: #37252f;
-    --border: #5e5252;
-    --text: #d5ccba;
-    --muted: #968c83;
-    --green: #858162;
-    --blue: #426a79;
-    --cyan: #989a9c;
-    --orange: #97522c;
-    --yellow: #eaa549;
-    --red: #be100e;
-}
 
 * {
     margin: 0;
@@ -127,21 +78,6 @@ body {
     font-size: 12px;
 }
 
-/* Theme toggle */
-.theme-toggle {
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-family: var(--font);
-    font-size: 11px;
-    padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.theme-toggle:hover {
-    color: var(--text);
-}
 
 /* Body */
 .body {
