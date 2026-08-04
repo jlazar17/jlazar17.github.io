@@ -26,7 +26,7 @@ FEATURED_FILE = Path(__file__).resolve().parent / "featured_collabs.txt"
 
 
 def load_featured() -> set:
-    """Return set of arXiv IDs that should always be shown."""
+    """Return set of arXiv IDs / INSPIRE record IDs that should always be shown."""
     if not FEATURED_FILE.exists():
         return set()
     ids = set()
@@ -35,6 +35,15 @@ def load_featured() -> set:
         if line:
             ids.add(line)
     return ids
+
+
+def is_featured(arxiv, inspire_id, featured: set) -> bool:
+    """Featured entries may be given as an arXiv ID or an INSPIRE record ID.
+
+    Conference proceedings often have no arXiv preprint, so the INSPIRE record
+    ID is the only stable handle for them.
+    """
+    return (arxiv is not None and arxiv in featured) or str(inspire_id) in featured
 
 # Exclude `authors` here — large collaboration papers have 400+ authors and
 # blow up the response. We fetch authors separately for non-collaboration papers.
@@ -147,7 +156,9 @@ def pub_html(meta: dict, inspire_id: str, featured: set = frozenset()) -> str:
     if arxiv:
         arxiv_link = f'<a href="https://arxiv.org/abs/{arxiv}" target="_blank">arXiv:{arxiv}</a>'
 
-    is_collab = (bool(collabs) or author_count > 10) and arxiv not in featured
+    is_collab = (bool(collabs) or author_count > 10) and not is_featured(
+        arxiv, inspire_id, featured
+    )
     collab_attr = ' data-collab="true"' if is_collab else ""
 
     return f"""\
@@ -291,7 +302,7 @@ def main():
         arxivs       = meta.get("arxiv_eprints", [])
         arxiv        = arxivs[0].get("value") if arxivs else None
         is_collab    = bool(meta.get("collaborations")) or meta.get("author_count", 0) > 10
-        if is_collab and year < cutoff and arxiv not in featured:
+        if is_collab and year < cutoff and not is_featured(arxiv, pub["id"], featured):
             n_dropped += 1
             continue
         by_year[str(year)].append(pub)

@@ -1,4 +1,32 @@
 # Featured collaboration papers
-# These are always shown regardless of the "hide collab papers" toggle.
-# Add one arXiv ID per line. Lines starting with # are ignored.
+# These are always shown regardless of the "hide collab papers" toggle, and are
+# never dropped by COLLAB_YEARS_CUTOFF.
+#
+# One entry per line: either an arXiv ID (2507.08457) or, for proceedings with
+# no preprint, an INSPIRE record ID (2683011 -> inspirehep.net/literature/2683011).
+# Lines starting with # are ignored.
 
+# -- Solar neutrinos (IceCube) ------------------------------------------------
+2507.08457   # Search for High-Energy Neutrinos From the Sun, Ten Years of IceCube
+2507.08519   # Limits on WIMP-Scattering Cross Sections using Solar Neutrinos
+2683011      # All-Energy Search for Solar Atmospheric Neutrinos (PoS ICRC2023)
+2056151      # Searching for Dark Matter from the Sun with IceCube (PoS ICRC2021)
+2111.09970   # GeV-scale dark matter annihilation in the Sun with IceCube DeepCore
+2107.13696   # Recent Progress in Solar Atmospheric Neutrino Searches with IceCube
+2101.00610   # GeV neutrino emission during intense gamma-ray solar flares
+1912.13135   # Neutrinos from cosmic-ray interactions in the Sun, seven years of IceCube
+1909.03930   # Search for Dark Matter Annihilation to Neutrinos from the Sun
+
+# -- TAMBO --------------------------------------------------------------------
+2507.08070   # TAMBO: A Deep-Valley Neutrino Observatory
+3185371      # Measuring the high-energy neutrino sky using TAMBO (PoS)
+3067082      # Current Status of TAMBO: Realizing PeV Neutrino Astronomy (PoS)
+3067085      # Tracing Out The Neutrino Sky With TAMBO (PoS)
+2683013      # TAMBO: Searching for Tau Neutrinos in the Peruvian Andes (PoS ICRC2023)
+2683040      # Current status of simulation for TAMBO (PoS ICRC2023)
+
+# -- Whitepapers / community papers -------------------------------------------
+2203.05591   # Tau neutrinos in the next decade: from GeV to EeV
+2203.08805   # Quantum Computing for Data Analysis in High-Energy Physics
+2604.01850   # CORSIKA 8: A general framework for particle cascade simulations
+2602.22248   # Machine Learning on Heterogeneous, Edge, and Quantum Hardware (ML-HEQUPP)

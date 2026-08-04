@@ -244,6 +244,17 @@ a:hover {
     50%       { opacity: 0; }
 }
 
+/* Collaborations: past ones are dimmed and marked */
+.collab-past {
+    color: var(--muted);
+}
+
+.collab-past::after {
+    content: " (past)";
+    font-size: 12px;
+    color: var(--border);
+}
+
 /* Color utilities */
 .muted  { color: var(--muted); }
 .cyan   { color: var(--cyan); }
