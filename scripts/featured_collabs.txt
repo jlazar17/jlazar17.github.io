@@ -6,16 +6,17 @@
 # no preprint, an INSPIRE record ID (2683011 -> inspirehep.net/literature/2683011).
 # Lines starting with # are ignored.
 
-# -- Solar neutrinos (IceCube) ------------------------------------------------
+# -- Solar neutrinos: all-energy solar WIMP search and solar atmospheric ------
 2507.08457   # Search for High-Energy Neutrinos From the Sun, Ten Years of IceCube
 2507.08519   # Limits on WIMP-Scattering Cross Sections using Solar Neutrinos
 2683011      # All-Energy Search for Solar Atmospheric Neutrinos (PoS ICRC2023)
-2056151      # Searching for Dark Matter from the Sun with IceCube (PoS ICRC2021)
-2111.09970   # GeV-scale dark matter annihilation in the Sun with IceCube DeepCore
+2056151      # Searching for Dark Matter from the Sun with IceCube (PoS)
 2107.13696   # Recent Progress in Solar Atmospheric Neutrino Searches with IceCube
-2101.00610   # GeV neutrino emission during intense gamma-ray solar flares
-1912.13135   # Neutrinos from cosmic-ray interactions in the Sun, seven years of IceCube
 1909.03930   # Search for Dark Matter Annihilation to Neutrinos from the Sun
+
+# -- IceCube Upgrade sensitivity ----------------------------------------------
+3067024      # Prospective Sensitivity to WIMP Dark Matter with the IceCube Upgrade (PoS)
+2605.06600   # Sensitivity Projections for Low-Mass Dark Matter Annihilation, IceCube Upgrade
 
 # -- TAMBO --------------------------------------------------------------------
 2507.08070   # TAMBO: A Deep-Valley Neutrino Observatory

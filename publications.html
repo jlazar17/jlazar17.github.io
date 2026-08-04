@@ -32,13 +32,13 @@
             <a href="cv.html">cv</a>
         </nav>
 
-        <div class="cmd">
+        <div class="cmd" data-group="papers">
             <span class="ps1">
                 <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>
-                <span class="c">ls -lt</span>
+                <span class="c">ls -lt papers/</span>
             </span>
         </div>
-        <div class="out">
+        <div class="out" data-group="papers">
             <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
                 <span class="muted"># full list on
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
@@ -62,6 +62,17 @@
                             sib = sib.nextElementSibling;
                         }
                         hdr.style.display = visible ? '' : 'none';
+                    });
+                    // Hide a whole group (and its prompt) when every entry in it is hidden.
+                    document.querySelectorAll('.out[data-group]').forEach(function(out) {
+                        var pubs = out.querySelectorAll('.pub');
+                        var visible = false;
+                        for (var i = 0; i < pubs.length; i++) {
+                            if (!_ch || !pubs[i].hasAttribute('data-collab')) { visible = true; break; }
+                        }
+                        var cmd = document.querySelector('.cmd[data-group="' + out.dataset.group + '"]');
+                        out.style.display = visible ? '' : 'none';
+                        if (cmd) cmd.style.display = visible ? '' : 'none';
                     });
                 }
                 function toggleCollabs() {
@@ -138,7 +149,7 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2605.19040" target="_blank">arXiv:2605.19040</a></div>
                 </div>
             </div>
-            <div class="pub" data-collab="true">
+            <div class="pub">
                 <div class="pub-year">2026</div>
                 <div class="pub-body">
                     <div class="pub-title">Sensitivity Projections for Low-Mass Dark Matter Annihilation with the IceCube Upgrade</div>
@@ -305,168 +316,6 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
-                    <div class="pub-title">Measuring the galactic plane and searching for galactic PeVatrons using the IceCube Multi-Flavor Astrophysical Neutrino sample</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1193" target="_blank">PoS ICRC2025, 1193 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Performance of the Prototype Station of the IceCube Surface Array Enhancement</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0394" target="_blank">PoS ICRC2025, 394 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2510.14636" target="_blank">arXiv:2510.14636</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Spectrum of PeV Cosmic-Ray Protons and Helium Nuclei with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0376" target="_blank">PoS ICRC2025, 376 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2511.05284" target="_blank">arXiv:2511.05284</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Prospective Sensitity to WIMP Dark Matter with the IceCube Upgrade</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0486" target="_blank">PoS ICRC2025, 486 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Heavy Dark Matter Annihilation search with IceCube tracks</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0523" target="_blank">PoS ICRC2025, 523 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for decoherence due to quantum gravity with the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1081" target="_blank">PoS ICRC2025, 1081 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Current Status of TAMBO: Realizing PeV Neutrino Astronomy with a Cost-Effective Observatory</div>
-                    <div class="pub-authors">J. Lazar et al.</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1194" target="_blank">PoS ICRC2025, 1194 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Tracing Out The Neutrino Sky With TAMBO</div>
-                    <div class="pub-authors">J. Lazar et al.</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0981" target="_blank">PoS ICRC2025, 981 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Improved Gamma-Hadron Separation for PeV Photon Searches with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0837" target="_blank">PoS ICRC2025, 837 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Analysis of the Galactic Astrophysical Flux with 12.1 Years of IceCube Starting Tracks, Throughgoing Tracks and Cascades</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1135" target="_blank">PoS ICRC2025, 1135 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Dark matter searches in the Galactic Center with IceCube-DeepCore and IceCube-Upgrade</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0476" target="_blank">PoS ICRC2025, 476 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for High-Energy Neutrinos from Infrared Flares</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1145" target="_blank">PoS ICRC2025, 1145 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Open-source, Cross-detector Comparisons for Machine Learning Reconstructions in Neutrino Telescopes</div>
-                    <div class="pub-authors"><strong>J. Lazar</strong></div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1090" target="_blank">PoS ICRC2025, 1090 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Characterizing IceTop response to low-energy air showers</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0412" target="_blank">PoS ICRC2025, 412 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2510.10485" target="_blank">arXiv:2510.10485</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Evidence of Neutrino Emission from X-ray Bright Seyfert Galaxies with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1219" target="_blank">PoS ICRC2025, 1219 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Multi-Energy and Multi-Sample Searches for IceCube Neutrinos from LIGO/Virgo/KAGRA Gravitational Wave Events</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0915" target="_blank">PoS ICRC2025, 915 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Constraints on the Population of Common Sources of Gravitational Waves and High-Energy Neutrinos with IceCube During the Third Observing Run of the LIGO and Virgo Detectors</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0972" target="_blank">PoS ICRC2025, 972 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2512.10707" target="_blank">arXiv:2512.10707</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">12-Years Observation of Seasonal Variation of Atmospheric Neutrino Flux with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0241" target="_blank">PoS ICRC2025, 241 (2025)</a></span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
                     <div class="pub-title">Constraining gamma-ray burst parameters with the first ultra-high energy neutrino event KM3-230213A</div>
                     <div class="pub-authors">KM3NeT Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1051/0004-6361/202557320" target="_blank">Astron.Astrophys. 710, A168 (2026)</a></span></div>
@@ -485,42 +334,6 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
-                    <div class="pub-title">Radio Detection of Cosmic Rays with the IceCube Surface Array Enhancement</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0427" target="_blank">PoS ICRC2025, 427 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13033" target="_blank">arXiv:2509.13033</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Archival Search for IceCube Sub-TeV Neutrino Counterparts to Sub-Threshold Gravitational Wave Events from the Third Observing Run of the LIGO-Virgo-KAGRA</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0954" target="_blank">PoS ICRC2025, 954 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13003" target="_blank">arXiv:2509.13003</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Muon number reconstruction with IceTop using a two-component lateral distribution function</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0437" target="_blank">PoS ICRC2025, 437 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13002" target="_blank">arXiv:2509.13002</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Commissioning and Testing of IceAct Telescopes at the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0423" target="_blank">PoS ICRC2025, 423 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.09778" target="_blank">arXiv:2509.09778</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
                     <div class="pub-title">Identification and denoising of radio signals from cosmic-ray air showers using convolutional neural networks</div>
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/xw99-zq7j" target="_blank">Phys.Rev.D 113 (2026)</a></span></div>
@@ -530,46 +343,10 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
-                    <div class="pub-title">Investigation of Electromagnetic and Muonic Air-Shower Components using IceTop Simulations</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0424" target="_blank">PoS ICRC2025, 424 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2508.08478" target="_blank">arXiv:2508.08478</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Measurement of All Flavor PeV Neutrino Flux using Combined Datasets from IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1217" target="_blank">PoS ICRC2025, 1217 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2508.05886" target="_blank">arXiv:2508.05886</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
                     <div class="pub-title">The LED calibration systems for the mDOM and D-Egg sensor modules of the IceCube Upgrade: Design, production, testing and use in module calibration</div>
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1088/1748-0221/20/11/P11026" target="_blank">JINST 20 (2025)</a></span></div>
                     <div class="pub-links"><a href="https://arxiv.org/abs/2508.03822" target="_blank">arXiv:2508.03822</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Investigating Energy-Dependent Anisotropy in Cosmic Rays with IceTop Surface Array</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0167" target="_blank">PoS ICRC2025, 167 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.23044" target="_blank">arXiv:2507.23044</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for Neutrinos from the Galactic 4FGL Sources with the Pion-bump Signature with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0929" target="_blank">PoS ICRC2025, 929 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.23040" target="_blank">arXiv:2507.23040</a></div>
                 </div>
             </div>
             <div class="pub" data-collab="true">
@@ -590,87 +367,6 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.22233" target="_blank">arXiv:2507.22233</a></div>
                 </div>
             </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Performance Study of the IceCube Upgrade Camera System</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1069" target="_blank">PoS ICRC2025, 1069 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.18525" target="_blank">arXiv:2507.18525</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Prospects for GeV Neutrino Transient Searches with the IceCube Upgrade</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1076" target="_blank">PoS ICRC2025, 1076 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.16050" target="_blank">arXiv:2507.16050</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Prospective Sensitivity to Solar Dark Matter using the IceCube Upgrade</div>
-                    <div class="pub-authors">E. Genton, <strong>J. Lazar</strong>, C. Argüelles, G. de Wasseige</div>
-                    <div class="pub-venue"><span class="muted">Submitted</span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.14943" target="_blank">arXiv:2507.14943</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Unfolding the Atmospheric Muon Flux with IceCube: Investigating Stopping Muons and High-Energy Prompt Contributions</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0281" target="_blank">PoS ICRC2025, 281 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.14525" target="_blank">arXiv:2507.14525</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Probing neutrino emission at GeV energies from compact binary mergers detected during O1-O4a with the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0947" target="_blank">PoS ICRC2025, 947 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.13698" target="_blank">arXiv:2507.13698</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Ultra-High-Energy Transient Source Search using IceCube Neutrinos and Pierre Auger Photon Candidates</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0955" target="_blank">PoS ICRC2025, 955 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.10994" target="_blank">arXiv:2507.10994</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Enhancements to the IceCube Extremely High Energy Neutrino Selection using Graph & Transformer Based Neural Networks</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1127" target="_blank">PoS ICRC2025, 1127 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.11774" target="_blank">arXiv:2507.11774</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Updated Earth Tomography Using Atmospheric Neutrinos at IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1211" target="_blank">PoS ICRC2025, 1211 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.09763" target="_blank">arXiv:2507.09763</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Limits on WIMP-Scattering Cross Sections using Solar Neutrinos with Ten Years of IceCube Data</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0502" target="_blank">PoS ICRC2025, 502 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08519" target="_blank">arXiv:2507.08519</a></div>
-                </div>
-            </div>
             <div class="pub">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
@@ -678,141 +374,6 @@
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="muted">Submitted</span></div>
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.08457" target="_blank">arXiv:2507.08457</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Simulation and Performance Studies for the Tau Air-Shower Mountain-Based Observatory</div>
-                    <div class="pub-authors">C. A. Argüelles, <strong>J. Lazar</strong>, W. Thompson, P. Zhelnin</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1091" target="_blank">PoS ICRC2025, 1091 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08524" target="_blank">arXiv:2507.08524</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Time Variation in the TeV Cosmic Ray Anisotropy with IceCube and Energy Dependence of the Solar Dipole</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0458" target="_blank">PoS ICRC2025, 458 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08242" target="_blank">arXiv:2507.08242</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">A co-deployed dust-logging instrument for the IceCube Upgrade and IceCube-Gen2</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1034" target="_blank">PoS ICRC2025, 1034 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08430" target="_blank">arXiv:2507.08430</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Astrophysical neutrino flux measurement and search for nutau induced cascades with 11 years of IceCube data</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1011" target="_blank">PoS ICRC2025, 1011 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08421" target="_blank">arXiv:2507.08421</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Prospects for sub-GeV astrophysical neutrino detection with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1174" target="_blank">PoS ICRC2025, 1174 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08569" target="_blank">arXiv:2507.08569</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">IceCube searches for GeV neutrino counterparts associated with high-energy starting events</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1150" target="_blank">PoS ICRC2025, 1150 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08706" target="_blank">arXiv:2507.08706</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Advancements in the IceAct Energy Spectrum Analysis</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0355" target="_blank">PoS ICRC2025, 355 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08779" target="_blank">arXiv:2507.08779</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Advances in reconstructing the cosmic-ray energy spectrum with IceTop</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0367" target="_blank">PoS ICRC2025, 367 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08691" target="_blank">arXiv:2507.08691</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">All-flavor Time-dependent Search for Transient Neutrino Sources</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1007" target="_blank">PoS ICRC2025, 1007 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08775" target="_blank">arXiv:2507.08775</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Low-latency neutrino follow-up combining diverse IceCube selections</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0956" target="_blank">PoS ICRC2025, 956 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08748" target="_blank">arXiv:2507.08748</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">The IceCube Collaboration -- Contributions to the 39th International Cosmic Ray Conference (ICRC2025)</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="muted">Submitted</span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08666" target="_blank">arXiv:2507.08666</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">A search for extremely-high-energy neutrinos with IceCube and implications for the ultra-high-energy cosmic-ray proton fraction</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1122" target="_blank">PoS ICRC2025, 1122 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07497" target="_blank">arXiv:2507.07497</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Advanced Northern Tracks Selection using a Graph Convolutional Neural Network for the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1183" target="_blank">PoS ICRC2025, 1183 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07452" target="_blank">arXiv:2507.07452</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Classification of high energy muon bundles and single muons from the southern sky in IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0979" target="_blank">PoS ICRC2025, 979 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07408" target="_blank">arXiv:2507.07408</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">New Public Neutrino Alerts for Clusters of IceCube Events</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0949" target="_blank">PoS ICRC2025, 949 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07491" target="_blank">arXiv:2507.07491</a></div>
                 </div>
             </div>
             <div class="pub">
@@ -827,217 +388,10 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2025</div>
                 <div class="pub-body">
-                    <div class="pub-title">Measuring the Neutrino Flux in Segments along the Galactic Plane with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1130" target="_blank">PoS ICRC2025, 1130 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08097" target="_blank">arXiv:2507.08097</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Enhancing searches for astrophysical neutrino sources in IceCube with machine learning and improved spatial modeling</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1169" target="_blank">PoS ICRC2025, 1169 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08132" target="_blank">arXiv:2507.08132</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Results from IceCube Searches for High-Energy Neutrinos Coincident with Gravitational-Wave Alerts in LVK O4</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1113" target="_blank">PoS ICRC2025, 1113 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08131" target="_blank">arXiv:2507.08131</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Very Late Afterpulses and Search for the Neutron Echo in IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1030" target="_blank">PoS ICRC2025, 1030 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07042" target="_blank">arXiv:2507.07042</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Impact of Hole-ice Calibration on High Energy Event Reconstruction with the IceCube Upgrade</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1029" target="_blank">PoS ICRC2025, 1029 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07062" target="_blank">arXiv:2507.07062</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Using End-to-End Optimized Summary Statistics to Improve IceCube's Diffuse Galactic Fits</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1132" target="_blank">PoS ICRC2025, 1132 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06666" target="_blank">arXiv:2507.06666</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Neutrino flavor composition using High Energy Starting Events with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1198" target="_blank">PoS ICRC2025, 1198 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06835" target="_blank">arXiv:2507.06835</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Improvements in the Reconstruction of IceCube Realtime Alerts</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1184" target="_blank">PoS ICRC2025, 1184 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06957" target="_blank">arXiv:2507.06957</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for GeV-PeV neutrinos from nova T Coronae Borealis with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1200" target="_blank">PoS ICRC2025, 1200 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07096" target="_blank">arXiv:2507.07096</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">A Search for Astrophysical Neutrinos from Flaring X-ray Binaries with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1077" target="_blank">PoS ICRC2025, 1077 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06807" target="_blank">arXiv:2507.06807</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">IceCube population constraints on neutrino emission by Fermi-LAT detected active galactic nuclei</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0933" target="_blank">PoS ICRC2025, 933 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07098" target="_blank">arXiv:2507.07098</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">All-Sky Cosmic-Ray Anisotropy Update at Multiple Energies</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0244" target="_blank">PoS ICRC2025, 244 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07070" target="_blank">arXiv:2507.07070</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Results from IceCube Follow-up of Nearby Supernova SN2023ixf</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1109" target="_blank">PoS ICRC2025, 1109 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07097" target="_blank">arXiv:2507.07097</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Measurement of the Three-Flavor Composition of Astrophysical Neutrinos with Contained IceCube Events</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0983" target="_blank">PoS ICRC2025, 983 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07212" target="_blank">arXiv:2507.07212</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Status and performance of mass-produced IceCube Upgrade mDOMs</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1040" target="_blank">PoS ICRC2025, 1040 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07273" target="_blank">arXiv:2507.07273</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Determining the orientation of radio antennas at the South Pole using Galactic noise measurements</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0308" target="_blank">PoS ICRC2025, 308 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07224" target="_blank">arXiv:2507.07224</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
                     <div class="pub-title">All-sky Neutrino Point-source Search with IceCube Combined Track and Cascade Data</div>
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/ae113f" target="_blank">Astrophys.J. 995, 11 (2025)</a></span></div>
                     <div class="pub-links"><a href="https://arxiv.org/abs/2507.07275" target="_blank">arXiv:2507.07275</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Combining IceCube Muon Tracks and Cascades to measure the Galactic Diffuse Neutrino Flux</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1056" target="_blank">PoS ICRC2025, 1056 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06089" target="_blank">arXiv:2507.06089</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for Sub-Relativistic Magnetic Monopoles with the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0492" target="_blank">PoS ICRC2025, 492 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.05896" target="_blank">arXiv:2507.05896</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Measurement of the Diffuse Astrophysical Neutrino Spectrum above a TeV with All Flavor Starting Events in IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0985" target="_blank">PoS ICRC2025, 985 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06002" target="_blank">arXiv:2507.06002</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">IceCat-2: Updated IceCube Event Catalog of Alert Tracks</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1224" target="_blank">PoS ICRC2025, 1224 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06176" target="_blank">arXiv:2507.06176</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">Mapping the ice stratigraphy in IceCube using camera deployment footage</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1035" target="_blank">PoS ICRC2025, 1035 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06330" target="_blank">arXiv:2507.06330</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">An updated list of target sources for IceCube neutrino cluster alerts</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0919" target="_blank">PoS ICRC2025, 919 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06312" target="_blank">arXiv:2507.06312</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2025</div>
-                <div class="pub-body">
-                    <div class="pub-title">State of the Ice Model in IceCube observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1013" target="_blank">PoS ICRC2025, 1013 (2025)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06341" target="_blank">arXiv:2507.06341</a></div>
                 </div>
             </div>
             <div class="pub" data-collab="true">
@@ -1450,15 +804,6 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2024</div>
                 <div class="pub-body">
-                    <div class="pub-title">Towards the Composition of sub-PeV Cosmic Rays at IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.441.0137" target="_blank">PoS TAUP2023, 137 (2024)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2511.05686" target="_blank">arXiv:2511.05686</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2024</div>
-                <div class="pub-body">
                     <div class="pub-title">In situ estimation of ice crystal properties at the South Pole using LED calibration data from the IceCube Neutrino Observatory</div>
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.5194/tc-18-75-2024" target="_blank">The Cryosphere 18, 75 (2024)</a></span></div>
@@ -1467,15 +812,6 @@
             </div>
 
             <div class="section-hdr"># 2023</div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Cosmic ray detection with the IceTop Enhancement</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.449.0081" target="_blank">PoS EPS-HEP2023, 081 (2024)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2506.18566" target="_blank">arXiv:2506.18566</a></div>
-                </div>
-            </div>
             <div class="pub" data-collab="true">
                 <div class="pub-year">2023</div>
                 <div class="pub-body">
@@ -1497,15 +833,6 @@
             <div class="pub" data-collab="true">
                 <div class="pub-year">2023</div>
                 <div class="pub-body">
-                    <div class="pub-title">Highlights from the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.444.0017" target="_blank">PoS ICRC2023, 017 (2024)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2310.12840" target="_blank">arXiv:2310.12840</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
                     <div class="pub-title">Search for Continuous and Transient Neutrino Emission Associated with IceCube’s Highest-energy Tracks: An 11 yr Analysis</div>
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/ad18d6" target="_blank">Astrophys.J. 964, 40 (2024)</a></span></div>
@@ -1519,6 +846,865 @@
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/ad07d1" target="_blank">Astrophys.J. 961, 84 (2024)</a></span></div>
                     <div class="pub-links"><a href="https://arxiv.org/abs/2308.01172" target="_blank">arXiv:2308.01172</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for decoherence from quantum gravity with atmospheric neutrinos</div>
+                    <div class="pub-authors">ICECUBE Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1038/s41567-024-02436-w" target="_blank">Nature Phys. 20, 913 (2024)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2308.00105" target="_blank">arXiv:2308.00105</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for Extended Sources of Neutrino Emission in the Galactic Plane with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/acf713" target="_blank">Astrophys.J. 956, 20 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2307.07576" target="_blank">arXiv:2307.07576</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Observation of high-energy neutrinos from the Galactic plane</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1126/science.adc9818" target="_blank">Science 380 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2307.04427" target="_blank">arXiv:2307.04427</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Prometheus: An open-source neutrino telescope simulation</div>
+                    <div class="pub-authors"><strong>J. Lazar</strong>, S. Meighen-Berger, C. Haack, D. Kim, S. Giner, et al.</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1016/j.cpc.2024.109298" target="_blank">Comput.Phys.Commun. 304 (2024)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.14526" target="_blank">arXiv:2304.14526</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for Correlations of High-energy Neutrinos Detected in IceCube with Radio-bright AGN and Gamma-Ray Emission from Blazars</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/acdfcb" target="_blank">Astrophys.J. 954, 75 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.12675" target="_blank">arXiv:2304.12675</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measurement of atmospheric neutrino mixing with improved IceCube DeepCore calibration and data processing</div>
+                    <div class="pub-authors">(IceCube Collaboration)* Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.012014" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.12236" target="_blank">arXiv:2304.12236</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">IceCat-1: The IceCube Event Catalog of Alert Tracks</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4365/acfa95" target="_blank">Astrophys.J.Suppl. 269, 25 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.01174" target="_blank">arXiv:2304.01174</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">A Search for IceCube Sub-TeV Neutrinos Correlated with Gravitational-wave Events Detected By LIGO/Virgo</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/aceefc" target="_blank">Astrophys.J. 959, 96 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.15970" target="_blank">arXiv:2303.15970</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for neutrino lines from dark matter annihilation and decay with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.102004" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.13663" target="_blank">arXiv:2303.13663</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Trigger-level event reconstruction for neutrino telescopes using sparse submanifold convolutional neural networks</div>
+                    <div class="pub-authors">F. J. Yu, <strong>J. Lazar</strong>, C. A. Argüelles</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.063017" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.08812" target="_blank">arXiv:2303.08812</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Observation of seasonal variations of the flux of high-energy atmospheric neutrinos with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1140/epjc/s10052-023-11679-5" target="_blank">Eur.Phys.J.C 83, 777 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.04682" target="_blank">arXiv:2303.04682</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Constraining High-energy Neutrino Emission from Supernovae with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/2041-8213/acd2c9" target="_blank">Astrophys.J.Lett. 949, L12 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.03316" target="_blank">arXiv:2303.03316</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Limits on Neutrino Emission from GRB 221009A from MeV to PeV Using the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/2041-8213/acc077" target="_blank">Astrophys.J.Lett. 946, L26 (2023)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2302.05459" target="_blank">arXiv:2302.05459</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Searching for solar neutrinos and building an open-source future for neutrino astronomy</div>
+                    <div class="pub-authors"><strong>J. P. Lazar</strong>, F. Halzen</div>
+                    <div class="pub-venue"><span class="muted">Submitted</span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+
+            <div class="section-hdr"># 2022</div>
+            <div class="pub">
+                <div class="pub-year">2022</div>
+                <div class="pub-body">
+                    <div class="pub-title">Tau neutrinos in the next decade: from GeV to EeV</div>
+                    <div class="pub-authors">J. Lazar et al.</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1088/1361-6471/ac89d2" target="_blank">J.Phys.G 49 (2022)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2203.05591" target="_blank">arXiv:2203.05591</a></div>
+                </div>
+            </div>
+
+            <div class="section-hdr"># 2021</div>
+            <div class="pub">
+                <div class="pub-year">2021</div>
+                <div class="pub-body">
+                    <div class="pub-title">TauRunner: A public Python program to propagate neutral and charged leptons</div>
+                    <div class="pub-authors">I. Safa, <strong>J. Lazar</strong>, A. Pizzuto, O. Vasquez, C. A. Argüelles, et al.</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1016/j.cpc.2022.108422" target="_blank">Comput.Phys.Commun. 278 (2022)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2110.14662" target="_blank">arXiv:2110.14662</a></div>
+                </div>
+            </div>
+
+            <div class="section-hdr"># 2020</div>
+            <div class="pub">
+                <div class="pub-year">2020</div>
+                <div class="pub-body">
+                    <div class="pub-title">$\chi$aro$\nu$: a tool for neutrino flux generation from WIMPs</div>
+                    <div class="pub-authors">Q. Liu, <strong>J. Lazar</strong>, C. A. Argüelles, A. Kheirandish</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1088/1475-7516/2020/10/043" target="_blank">JCAP 10, 043 (2020)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2007.15010" target="_blank">arXiv:2007.15010</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cmd" data-group="proceedings">
+            <span class="ps1">
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>
+                <span class="c">ls -lt proceedings/</span>
+            </span>
+        </div>
+        <div class="out" data-group="proceedings">
+
+            <div class="section-hdr"># 2025</div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measuring the galactic plane and searching for galactic PeVatrons using the IceCube Multi-Flavor Astrophysical Neutrino sample</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1193" target="_blank">PoS ICRC2025, 1193 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Performance of the Prototype Station of the IceCube Surface Array Enhancement</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0394" target="_blank">PoS ICRC2025, 394 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2510.14636" target="_blank">arXiv:2510.14636</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Spectrum of PeV Cosmic-Ray Protons and Helium Nuclei with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0376" target="_blank">PoS ICRC2025, 376 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2511.05284" target="_blank">arXiv:2511.05284</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Prospective Sensitity to WIMP Dark Matter with the IceCube Upgrade</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0486" target="_blank">PoS ICRC2025, 486 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Heavy Dark Matter Annihilation search with IceCube tracks</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0523" target="_blank">PoS ICRC2025, 523 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for decoherence due to quantum gravity with the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1081" target="_blank">PoS ICRC2025, 1081 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Current Status of TAMBO: Realizing PeV Neutrino Astronomy with a Cost-Effective Observatory</div>
+                    <div class="pub-authors">J. Lazar et al.</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1194" target="_blank">PoS ICRC2025, 1194 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Tracing Out The Neutrino Sky With TAMBO</div>
+                    <div class="pub-authors">J. Lazar et al.</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0981" target="_blank">PoS ICRC2025, 981 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Improved Gamma-Hadron Separation for PeV Photon Searches with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0837" target="_blank">PoS ICRC2025, 837 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Analysis of the Galactic Astrophysical Flux with 12.1 Years of IceCube Starting Tracks, Throughgoing Tracks and Cascades</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1135" target="_blank">PoS ICRC2025, 1135 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Dark matter searches in the Galactic Center with IceCube-DeepCore and IceCube-Upgrade</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0476" target="_blank">PoS ICRC2025, 476 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for High-Energy Neutrinos from Infrared Flares</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1145" target="_blank">PoS ICRC2025, 1145 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Open-source, Cross-detector Comparisons for Machine Learning Reconstructions in Neutrino Telescopes</div>
+                    <div class="pub-authors"><strong>J. Lazar</strong></div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1090" target="_blank">PoS ICRC2025, 1090 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Characterizing IceTop response to low-energy air showers</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0412" target="_blank">PoS ICRC2025, 412 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2510.10485" target="_blank">arXiv:2510.10485</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Evidence of Neutrino Emission from X-ray Bright Seyfert Galaxies with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1219" target="_blank">PoS ICRC2025, 1219 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Multi-Energy and Multi-Sample Searches for IceCube Neutrinos from LIGO/Virgo/KAGRA Gravitational Wave Events</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0915" target="_blank">PoS ICRC2025, 915 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Constraints on the Population of Common Sources of Gravitational Waves and High-Energy Neutrinos with IceCube During the Third Observing Run of the LIGO and Virgo Detectors</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0972" target="_blank">PoS ICRC2025, 972 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2512.10707" target="_blank">arXiv:2512.10707</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">12-Years Observation of Seasonal Variation of Atmospheric Neutrino Flux with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0241" target="_blank">PoS ICRC2025, 241 (2025)</a></span></div>
+                    <div class="pub-links"></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Radio Detection of Cosmic Rays with the IceCube Surface Array Enhancement</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0427" target="_blank">PoS ICRC2025, 427 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13033" target="_blank">arXiv:2509.13033</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Archival Search for IceCube Sub-TeV Neutrino Counterparts to Sub-Threshold Gravitational Wave Events from the Third Observing Run of the LIGO-Virgo-KAGRA</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0954" target="_blank">PoS ICRC2025, 954 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13003" target="_blank">arXiv:2509.13003</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Muon number reconstruction with IceTop using a two-component lateral distribution function</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0437" target="_blank">PoS ICRC2025, 437 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.13002" target="_blank">arXiv:2509.13002</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Commissioning and Testing of IceAct Telescopes at the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0423" target="_blank">PoS ICRC2025, 423 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2509.09778" target="_blank">arXiv:2509.09778</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Investigation of Electromagnetic and Muonic Air-Shower Components using IceTop Simulations</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0424" target="_blank">PoS ICRC2025, 424 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2508.08478" target="_blank">arXiv:2508.08478</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measurement of All Flavor PeV Neutrino Flux using Combined Datasets from IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1217" target="_blank">PoS ICRC2025, 1217 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2508.05886" target="_blank">arXiv:2508.05886</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Investigating Energy-Dependent Anisotropy in Cosmic Rays with IceTop Surface Array</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0167" target="_blank">PoS ICRC2025, 167 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.23044" target="_blank">arXiv:2507.23044</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for Neutrinos from the Galactic 4FGL Sources with the Pion-bump Signature with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0929" target="_blank">PoS ICRC2025, 929 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.23040" target="_blank">arXiv:2507.23040</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Performance Study of the IceCube Upgrade Camera System</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1069" target="_blank">PoS ICRC2025, 1069 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.18525" target="_blank">arXiv:2507.18525</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Prospects for GeV Neutrino Transient Searches with the IceCube Upgrade</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1076" target="_blank">PoS ICRC2025, 1076 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.16050" target="_blank">arXiv:2507.16050</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Prospective Sensitivity to Solar Dark Matter using the IceCube Upgrade</div>
+                    <div class="pub-authors">E. Genton, <strong>J. Lazar</strong>, C. Argüelles, G. de Wasseige</div>
+                    <div class="pub-venue"><span class="muted">Submitted</span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.14943" target="_blank">arXiv:2507.14943</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Unfolding the Atmospheric Muon Flux with IceCube: Investigating Stopping Muons and High-Energy Prompt Contributions</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0281" target="_blank">PoS ICRC2025, 281 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.14525" target="_blank">arXiv:2507.14525</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Probing neutrino emission at GeV energies from compact binary mergers detected during O1-O4a with the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0947" target="_blank">PoS ICRC2025, 947 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.13698" target="_blank">arXiv:2507.13698</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Ultra-High-Energy Transient Source Search using IceCube Neutrinos and Pierre Auger Photon Candidates</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0955" target="_blank">PoS ICRC2025, 955 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.10994" target="_blank">arXiv:2507.10994</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Enhancements to the IceCube Extremely High Energy Neutrino Selection using Graph & Transformer Based Neural Networks</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1127" target="_blank">PoS ICRC2025, 1127 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.11774" target="_blank">arXiv:2507.11774</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Updated Earth Tomography Using Atmospheric Neutrinos at IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1211" target="_blank">PoS ICRC2025, 1211 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.09763" target="_blank">arXiv:2507.09763</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Limits on WIMP-Scattering Cross Sections using Solar Neutrinos with Ten Years of IceCube Data</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0502" target="_blank">PoS ICRC2025, 502 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08519" target="_blank">arXiv:2507.08519</a></div>
+                </div>
+            </div>
+            <div class="pub">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Simulation and Performance Studies for the Tau Air-Shower Mountain-Based Observatory</div>
+                    <div class="pub-authors">C. A. Argüelles, <strong>J. Lazar</strong>, W. Thompson, P. Zhelnin</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1091" target="_blank">PoS ICRC2025, 1091 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08524" target="_blank">arXiv:2507.08524</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Time Variation in the TeV Cosmic Ray Anisotropy with IceCube and Energy Dependence of the Solar Dipole</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0458" target="_blank">PoS ICRC2025, 458 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08242" target="_blank">arXiv:2507.08242</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">A co-deployed dust-logging instrument for the IceCube Upgrade and IceCube-Gen2</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1034" target="_blank">PoS ICRC2025, 1034 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08430" target="_blank">arXiv:2507.08430</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Astrophysical neutrino flux measurement and search for nutau induced cascades with 11 years of IceCube data</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1011" target="_blank">PoS ICRC2025, 1011 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08421" target="_blank">arXiv:2507.08421</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Prospects for sub-GeV astrophysical neutrino detection with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1174" target="_blank">PoS ICRC2025, 1174 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08569" target="_blank">arXiv:2507.08569</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">IceCube searches for GeV neutrino counterparts associated with high-energy starting events</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1150" target="_blank">PoS ICRC2025, 1150 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08706" target="_blank">arXiv:2507.08706</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Advancements in the IceAct Energy Spectrum Analysis</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0355" target="_blank">PoS ICRC2025, 355 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08779" target="_blank">arXiv:2507.08779</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Advances in reconstructing the cosmic-ray energy spectrum with IceTop</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0367" target="_blank">PoS ICRC2025, 367 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08691" target="_blank">arXiv:2507.08691</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">All-flavor Time-dependent Search for Transient Neutrino Sources</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1007" target="_blank">PoS ICRC2025, 1007 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08775" target="_blank">arXiv:2507.08775</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Low-latency neutrino follow-up combining diverse IceCube selections</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0956" target="_blank">PoS ICRC2025, 956 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08748" target="_blank">arXiv:2507.08748</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">The IceCube Collaboration -- Contributions to the 39th International Cosmic Ray Conference (ICRC2025)</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="muted">Submitted</span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08666" target="_blank">arXiv:2507.08666</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">A search for extremely-high-energy neutrinos with IceCube and implications for the ultra-high-energy cosmic-ray proton fraction</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1122" target="_blank">PoS ICRC2025, 1122 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07497" target="_blank">arXiv:2507.07497</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Advanced Northern Tracks Selection using a Graph Convolutional Neural Network for the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1183" target="_blank">PoS ICRC2025, 1183 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07452" target="_blank">arXiv:2507.07452</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Classification of high energy muon bundles and single muons from the southern sky in IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0979" target="_blank">PoS ICRC2025, 979 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07408" target="_blank">arXiv:2507.07408</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">New Public Neutrino Alerts for Clusters of IceCube Events</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0949" target="_blank">PoS ICRC2025, 949 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07491" target="_blank">arXiv:2507.07491</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measuring the Neutrino Flux in Segments along the Galactic Plane with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1130" target="_blank">PoS ICRC2025, 1130 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08097" target="_blank">arXiv:2507.08097</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Enhancing searches for astrophysical neutrino sources in IceCube with machine learning and improved spatial modeling</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1169" target="_blank">PoS ICRC2025, 1169 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08132" target="_blank">arXiv:2507.08132</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Results from IceCube Searches for High-Energy Neutrinos Coincident with Gravitational-Wave Alerts in LVK O4</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1113" target="_blank">PoS ICRC2025, 1113 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.08131" target="_blank">arXiv:2507.08131</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Very Late Afterpulses and Search for the Neutron Echo in IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1030" target="_blank">PoS ICRC2025, 1030 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07042" target="_blank">arXiv:2507.07042</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Impact of Hole-ice Calibration on High Energy Event Reconstruction with the IceCube Upgrade</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1029" target="_blank">PoS ICRC2025, 1029 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07062" target="_blank">arXiv:2507.07062</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Using End-to-End Optimized Summary Statistics to Improve IceCube's Diffuse Galactic Fits</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1132" target="_blank">PoS ICRC2025, 1132 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06666" target="_blank">arXiv:2507.06666</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Neutrino flavor composition using High Energy Starting Events with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1198" target="_blank">PoS ICRC2025, 1198 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06835" target="_blank">arXiv:2507.06835</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Improvements in the Reconstruction of IceCube Realtime Alerts</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1184" target="_blank">PoS ICRC2025, 1184 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06957" target="_blank">arXiv:2507.06957</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for GeV-PeV neutrinos from nova T Coronae Borealis with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1200" target="_blank">PoS ICRC2025, 1200 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07096" target="_blank">arXiv:2507.07096</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">A Search for Astrophysical Neutrinos from Flaring X-ray Binaries with IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1077" target="_blank">PoS ICRC2025, 1077 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06807" target="_blank">arXiv:2507.06807</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">IceCube population constraints on neutrino emission by Fermi-LAT detected active galactic nuclei</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0933" target="_blank">PoS ICRC2025, 933 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07098" target="_blank">arXiv:2507.07098</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">All-Sky Cosmic-Ray Anisotropy Update at Multiple Energies</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0244" target="_blank">PoS ICRC2025, 244 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07070" target="_blank">arXiv:2507.07070</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Results from IceCube Follow-up of Nearby Supernova SN2023ixf</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1109" target="_blank">PoS ICRC2025, 1109 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07097" target="_blank">arXiv:2507.07097</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measurement of the Three-Flavor Composition of Astrophysical Neutrinos with Contained IceCube Events</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0983" target="_blank">PoS ICRC2025, 983 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07212" target="_blank">arXiv:2507.07212</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Status and performance of mass-produced IceCube Upgrade mDOMs</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1040" target="_blank">PoS ICRC2025, 1040 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07273" target="_blank">arXiv:2507.07273</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Determining the orientation of radio antennas at the South Pole using Galactic noise measurements</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0308" target="_blank">PoS ICRC2025, 308 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.07224" target="_blank">arXiv:2507.07224</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Combining IceCube Muon Tracks and Cascades to measure the Galactic Diffuse Neutrino Flux</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1056" target="_blank">PoS ICRC2025, 1056 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06089" target="_blank">arXiv:2507.06089</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Search for Sub-Relativistic Magnetic Monopoles with the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0492" target="_blank">PoS ICRC2025, 492 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.05896" target="_blank">arXiv:2507.05896</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Measurement of the Diffuse Astrophysical Neutrino Spectrum above a TeV with All Flavor Starting Events in IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0985" target="_blank">PoS ICRC2025, 985 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06002" target="_blank">arXiv:2507.06002</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">IceCat-2: Updated IceCube Event Catalog of Alert Tracks</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1224" target="_blank">PoS ICRC2025, 1224 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06176" target="_blank">arXiv:2507.06176</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">Mapping the ice stratigraphy in IceCube using camera deployment footage</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1035" target="_blank">PoS ICRC2025, 1035 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06330" target="_blank">arXiv:2507.06330</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">An updated list of target sources for IceCube neutrino cluster alerts</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.0919" target="_blank">PoS ICRC2025, 919 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06312" target="_blank">arXiv:2507.06312</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2025</div>
+                <div class="pub-body">
+                    <div class="pub-title">State of the Ice Model in IceCube observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.501.1013" target="_blank">PoS ICRC2025, 1013 (2025)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2507.06341" target="_blank">arXiv:2507.06341</a></div>
+                </div>
+            </div>
+
+            <div class="section-hdr"># 2024</div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2024</div>
+                <div class="pub-body">
+                    <div class="pub-title">Towards the Composition of sub-PeV Cosmic Rays at IceCube</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.441.0137" target="_blank">PoS TAUP2023, 137 (2024)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2511.05686" target="_blank">arXiv:2511.05686</a></div>
+                </div>
+            </div>
+
+            <div class="section-hdr"># 2023</div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Cosmic ray detection with the IceTop Enhancement</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.449.0081" target="_blank">PoS EPS-HEP2023, 081 (2024)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2506.18566" target="_blank">arXiv:2506.18566</a></div>
+                </div>
+            </div>
+            <div class="pub" data-collab="true">
+                <div class="pub-year">2023</div>
+                <div class="pub-body">
+                    <div class="pub-title">Highlights from the IceCube Neutrino Observatory</div>
+                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
+                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.444.0017" target="_blank">PoS ICRC2023, 017 (2024)</a></span></div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2310.12840" target="_blank">arXiv:2310.12840</a></div>
                 </div>
             </div>
             <div class="pub" data-collab="true">
@@ -2214,15 +2400,6 @@
                     <div class="pub-links"></div>
                 </div>
             </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for decoherence from quantum gravity with atmospheric neutrinos</div>
-                    <div class="pub-authors">ICECUBE Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1038/s41567-024-02436-w" target="_blank">Nature Phys. 20, 913 (2024)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2308.00105" target="_blank">arXiv:2308.00105</a></div>
-                </div>
-            </div>
             <div class="pub">
                 <div class="pub-year">2023</div>
                 <div class="pub-body">
@@ -2250,123 +2427,6 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2307.13048" target="_blank">arXiv:2307.13048</a></div>
                 </div>
             </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for Extended Sources of Neutrino Emission in the Galactic Plane with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/acf713" target="_blank">Astrophys.J. 956, 20 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2307.07576" target="_blank">arXiv:2307.07576</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Observation of high-energy neutrinos from the Galactic plane</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1126/science.adc9818" target="_blank">Science 380 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2307.04427" target="_blank">arXiv:2307.04427</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Prometheus: An open-source neutrino telescope simulation</div>
-                    <div class="pub-authors"><strong>J. Lazar</strong>, S. Meighen-Berger, C. Haack, D. Kim, S. Giner, et al.</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1016/j.cpc.2024.109298" target="_blank">Comput.Phys.Commun. 304 (2024)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.14526" target="_blank">arXiv:2304.14526</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for Correlations of High-energy Neutrinos Detected in IceCube with Radio-bright AGN and Gamma-Ray Emission from Blazars</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/acdfcb" target="_blank">Astrophys.J. 954, 75 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.12675" target="_blank">arXiv:2304.12675</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Measurement of atmospheric neutrino mixing with improved IceCube DeepCore calibration and data processing</div>
-                    <div class="pub-authors">(IceCube Collaboration)* Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.012014" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.12236" target="_blank">arXiv:2304.12236</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">IceCat-1: The IceCube Event Catalog of Alert Tracks</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4365/acfa95" target="_blank">Astrophys.J.Suppl. 269, 25 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2304.01174" target="_blank">arXiv:2304.01174</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">A Search for IceCube Sub-TeV Neutrinos Correlated with Gravitational-wave Events Detected By LIGO/Virgo</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/1538-4357/aceefc" target="_blank">Astrophys.J. 959, 96 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.15970" target="_blank">arXiv:2303.15970</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for neutrino lines from dark matter annihilation and decay with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.102004" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.13663" target="_blank">arXiv:2303.13663</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Trigger-level event reconstruction for neutrino telescopes using sparse submanifold convolutional neural networks</div>
-                    <div class="pub-authors">F. J. Yu, <strong>J. Lazar</strong>, C. A. Argüelles</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.108.063017" target="_blank">Phys.Rev.D 108 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.08812" target="_blank">arXiv:2303.08812</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Observation of seasonal variations of the flux of high-energy atmospheric neutrinos with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1140/epjc/s10052-023-11679-5" target="_blank">Eur.Phys.J.C 83, 777 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.04682" target="_blank">arXiv:2303.04682</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Constraining High-energy Neutrino Emission from Supernovae with IceCube</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/2041-8213/acd2c9" target="_blank">Astrophys.J.Lett. 949, L12 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2303.03316" target="_blank">arXiv:2303.03316</a></div>
-                </div>
-            </div>
-            <div class="pub" data-collab="true">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Limits on Neutrino Emission from GRB 221009A from MeV to PeV Using the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.3847/2041-8213/acc077" target="_blank">Astrophys.J.Lett. 946, L26 (2023)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2302.05459" target="_blank">arXiv:2302.05459</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2023</div>
-                <div class="pub-body">
-                    <div class="pub-title">Searching for solar neutrinos and building an open-source future for neutrino astronomy</div>
-                    <div class="pub-authors"><strong>J. P. Lazar</strong>, F. Halzen</div>
-                    <div class="pub-venue"><span class="muted">Submitted</span></div>
-                    <div class="pub-links"></div>
-                </div>
-            </div>
 
             <div class="section-hdr"># 2022</div>
             <div class="pub">
@@ -2387,35 +2447,8 @@
                     <div class="pub-links"><a href="https://arxiv.org/abs/2203.08805" target="_blank">arXiv:2203.08805</a></div>
                 </div>
             </div>
-            <div class="pub">
-                <div class="pub-year">2022</div>
-                <div class="pub-body">
-                    <div class="pub-title">Tau neutrinos in the next decade: from GeV to EeV</div>
-                    <div class="pub-authors">J. Lazar et al.</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1088/1361-6471/ac89d2" target="_blank">J.Phys.G 49 (2022)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2203.05591" target="_blank">arXiv:2203.05591</a></div>
-                </div>
-            </div>
 
             <div class="section-hdr"># 2021</div>
-            <div class="pub">
-                <div class="pub-year">2021</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for GeV-scale dark matter annihilation in the Sun with IceCube DeepCore</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.105.062004" target="_blank">Phys.Rev.D 105 (2022)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2111.09970" target="_blank">arXiv:2111.09970</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2021</div>
-                <div class="pub-body">
-                    <div class="pub-title">TauRunner: A public Python program to propagate neutral and charged leptons</div>
-                    <div class="pub-authors">I. Safa, <strong>J. Lazar</strong>, A. Pizzuto, O. Vasquez, C. A. Argüelles, et al.</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1016/j.cpc.2022.108422" target="_blank">Comput.Phys.Commun. 278 (2022)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2110.14662" target="_blank">arXiv:2110.14662</a></div>
-                </div>
-            </div>
             <div class="pub">
                 <div class="pub-year">2021</div>
                 <div class="pub-body">
@@ -2423,15 +2456,6 @@
                     <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
                     <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.22323/1.395.1174" target="_blank">PoS ICRC2021, 1174 (2021)</a></span></div>
                     <div class="pub-links"><a href="https://arxiv.org/abs/2107.13696" target="_blank">arXiv:2107.13696</a></div>
-                </div>
-            </div>
-            <div class="pub">
-                <div class="pub-year">2021</div>
-                <div class="pub-body">
-                    <div class="pub-title">Search for GeV neutrino emission during intense gamma-ray solar flares with the IceCube Neutrino Observatory</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1103/PhysRevD.103.102001" target="_blank">Phys.Rev.D 103 (2021)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2101.00610" target="_blank">arXiv:2101.00610</a></div>
                 </div>
             </div>
             <div class="pub">
@@ -2453,27 +2477,7 @@
                 </div>
             </div>
 
-            <div class="section-hdr"># 2020</div>
-            <div class="pub">
-                <div class="pub-year">2020</div>
-                <div class="pub-body">
-                    <div class="pub-title">$\chi$aro$\nu$: a tool for neutrino flux generation from WIMPs</div>
-                    <div class="pub-authors">Q. Liu, <strong>J. Lazar</strong>, C. A. Argüelles, A. Kheirandish</div>
-                    <div class="pub-venue"><span class="journal"><a href="https://doi.org/10.1088/1475-7516/2020/10/043" target="_blank">JCAP 10, 043 (2020)</a></span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2007.15010" target="_blank">arXiv:2007.15010</a></div>
-                </div>
-            </div>
-
             <div class="section-hdr"># 2019</div>
-            <div class="pub">
-                <div class="pub-year">2019</div>
-                <div class="pub-body">
-                    <div class="pub-title">Searches for neutrinos from cosmic-ray interactions in the Sun using seven years of IceCube data</div>
-                    <div class="pub-authors">IceCube Collaboration (incl. J. Lazar)</div>
-                    <div class="pub-venue"><span class="muted">Submitted</span></div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/1912.13135" target="_blank">arXiv:1912.13135</a></div>
-                </div>
-            </div>
             <div class="pub">
                 <div class="pub-year">2019</div>
                 <div class="pub-body">

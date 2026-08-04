@@ -54,8 +54,20 @@ INSPIRE_URL = (
     "&page=1"
     f"&q=a+{INSPIRE_BAI}"
     "&fields=titles,arxiv_eprints,publication_info,"
-    "earliest_date,dois,collaborations,author_count"
+    "earliest_date,dois,collaborations,author_count,document_type"
 )
+
+
+def is_proceedings(meta: dict) -> bool:
+    """Conference proceedings go in their own section below the regular papers.
+
+    A record tagged both 'article' and 'conference paper' (e.g. a whitepaper that
+    was later published in a journal) counts as a regular paper.
+    """
+    doc_types = meta.get("document_type", [])
+    if "article" in doc_types:
+        return False
+    return "conference paper" in doc_types or "proceedings" in doc_types
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -180,14 +192,19 @@ PROMPT = """\
                 <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>\
 """
 
-def render(pubs_by_year: dict, featured: set = frozenset()) -> str:
+def render_years(pubs_by_year: dict, featured: set = frozenset()) -> str:
     year_blocks = []
     for year in sorted(pubs_by_year.keys(), reverse=True):
         entries = "\n".join(pub_html(p["metadata"], p["id"], featured) for p in pubs_by_year[year])
         year_blocks.append(
             f'            <div class="section-hdr"># {year}</div>\n{entries}'
         )
-    pubs_html = "\n\n".join(year_blocks)
+    return "\n\n".join(year_blocks)
+
+
+def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()) -> str:
+    papers_html = render_years(papers_by_year, featured)
+    proc_html   = render_years(proc_by_year, featured)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -223,12 +240,12 @@ def render(pubs_by_year: dict, featured: set = frozenset()) -> str:
             <a href="cv.html">cv</a>
         </nav>
 
-        <div class="cmd">
+        <div class="cmd" data-group="papers">
 {PROMPT}
-                <span class="c">ls -lt</span>
+                <span class="c">ls -lt papers/</span>
             </span>
         </div>
-        <div class="out">
+        <div class="out" data-group="papers">
             <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
                 <span class="muted"># full list on
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
@@ -253,6 +270,17 @@ def render(pubs_by_year: dict, featured: set = frozenset()) -> str:
                         }}
                         hdr.style.display = visible ? '' : 'none';
                     }});
+                    // Hide a whole group (and its prompt) when every entry in it is hidden.
+                    document.querySelectorAll('.out[data-group]').forEach(function(out) {{
+                        var pubs = out.querySelectorAll('.pub');
+                        var visible = false;
+                        for (var i = 0; i < pubs.length; i++) {{
+                            if (!_ch || !pubs[i].hasAttribute('data-collab')) {{ visible = true; break; }}
+                        }}
+                        var cmd = document.querySelector('.cmd[data-group="' + out.dataset.group + '"]');
+                        out.style.display = visible ? '' : 'none';
+                        if (cmd) cmd.style.display = visible ? '' : 'none';
+                    }});
                 }}
                 function toggleCollabs() {{
                     _ch = !_ch;
@@ -264,7 +292,18 @@ def render(pubs_by_year: dict, featured: set = frozenset()) -> str:
                 document.addEventListener('DOMContentLoaded', _applyHeaders);
             </script>
 
-{pubs_html}
+{papers_html}
+
+        </div>
+
+        <div class="cmd" data-group="proceedings">
+{PROMPT}
+                <span class="c">ls -lt proceedings/</span>
+            </span>
+        </div>
+        <div class="out" data-group="proceedings">
+
+{proc_html}
 
         </div>
 
@@ -294,7 +333,8 @@ def main():
 
     cutoff = datetime.now().year - COLLAB_YEARS_CUTOFF
 
-    by_year = defaultdict(list)
+    papers_by_year = defaultdict(list)
+    proc_by_year   = defaultdict(list)
     n_dropped = 0
     for pub in pubs:
         meta         = pub["metadata"]
@@ -305,12 +345,15 @@ def main():
         if is_collab and year < cutoff and not is_featured(arxiv, pub["id"], featured):
             n_dropped += 1
             continue
-        by_year[str(year)].append(pub)
+        bucket = proc_by_year if is_proceedings(meta) else papers_by_year
+        bucket[str(year)].append(pub)
 
+    n_papers = sum(len(v) for v in papers_by_year.values())
+    n_proc   = sum(len(v) for v in proc_by_year.values())
     print(f"  Dropped {n_dropped} collab papers older than {COLLAB_YEARS_CUTOFF} years.")
-    print(f"  Rendering {sum(len(v) for v in by_year.values())} records.")
+    print(f"  Rendering {n_papers} papers and {n_proc} proceedings.")
 
-    html = render(by_year, featured)
+    html = render(papers_by_year, proc_by_year, featured)
     OUTPUT.write_text(html, encoding="utf-8")
     print(f"  Written to {OUTPUT}")
 
