@@ -313,7 +313,7 @@ def pub_html(meta: dict, inspire_id: str, featured: set = frozenset()) -> str:
 
 PROMPT = """\
             <span class="ps1">
-                <span class="u">jlazar</span><span class="at">@</span><span class="h">uclouvain</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>\
+                <span class="u">jlazar</span><span class="at">@</span><span class="h">mit</span><span class="colon">:</span><span class="p">~/publications</span><span class="dollar"> $</span>\
 """
 
 def render_years(pubs_by_year: dict, featured: set = frozenset()) -> str:
@@ -356,7 +356,7 @@ def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()
             <div class="dot dot-y"></div>
             <div class="dot dot-g"></div>
         </div>
-        <span class="title-text">jlazar@uclouvain: ~/publications</span>
+        <span class="title-text">jlazar@mit: ~/publications</span>
     </div>
     <div class="body">
 
