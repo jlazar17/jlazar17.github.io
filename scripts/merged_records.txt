@@ -1,0 +1,18 @@
+# Duplicate INSPIRE records.
+#
+# INSPIRE sometimes keeps the arXiv preprint and the published version as two
+# separate records instead of merging them, so the same paper shows up twice.
+#
+# Format, one pair per line:
+#     <keep_id> <drop_id>
+#
+# Both are INSPIRE record IDs (inspirehep.net/literature/<id>). The dropped
+# record is removed from the page, and its arXiv ID, journal reference and DOI
+# are grafted onto the kept record if the kept record is missing them. Pick
+# whichever record has the title and author list you want displayed.
+
+3185371 2944826   # TAMBO: keep the Nature Astronomy version, graft arXiv:2507.08070
+1922387 1891902   # Indirect DM search in the Galactic Centre: keep PoS ICRC2021
+2952352 3067024   # Solar DM with the IceCube Upgrade (ICRC2025): keep the arXiv record,
+                  # whose title is correct -- the PoS record reads "Prospective Sensitity
+                  # to WIMP Dark Matter" -- and graft PoS ICRC2025 486 onto it

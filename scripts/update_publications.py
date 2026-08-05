@@ -23,6 +23,41 @@ OUTPUT        = Path(__file__).resolve().parent.parent / "publications.html"
 COLLAB_YEARS_CUTOFF = 3
 
 FEATURED_FILE = Path(__file__).resolve().parent / "featured_collabs.txt"
+MERGED_FILE   = Path(__file__).resolve().parent / "merged_records.txt"
+
+
+def load_merges() -> dict:
+    """Return {drop_inspire_id: keep_inspire_id} for un-merged duplicate records."""
+    if not MERGED_FILE.exists():
+        return {}
+    merges = {}
+    for line in MERGED_FILE.read_text().splitlines():
+        line = line.split("#")[0].strip()
+        if not line:
+            continue
+        keep, drop = line.split()[:2]
+        merges[drop] = keep
+    return merges
+
+
+def has_venue(meta: dict) -> bool:
+    """True if the record names a journal, not just a bare conference reference."""
+    return any(info.get("journal_title") for info in meta.get("publication_info") or [])
+
+
+def graft(keep_meta: dict, drop_meta: dict) -> None:
+    """Fill gaps in the kept record from its duplicate (in place).
+
+    The preprint record carries the arXiv ID; the published record carries the
+    journal reference and DOI. Whichever we keep, we want both.
+    """
+    for field in ("arxiv_eprints", "dois"):
+        if not keep_meta.get(field) and drop_meta.get(field):
+            keep_meta[field] = drop_meta[field]
+    # A preprint record often has a publication_info entry holding only a
+    # conference reference, which is truthy but renders as "Submitted".
+    if not has_venue(keep_meta) and has_venue(drop_meta):
+        keep_meta["publication_info"] = drop_meta["publication_info"]
 
 
 def load_featured() -> set:
@@ -330,6 +365,20 @@ def main():
 
     pubs = fetch_pubs()
     print(f"  Found {len(pubs)} records.")
+
+    # Fold duplicate records into the one we keep before anything else looks at them.
+    merges = load_merges()
+    by_id  = {p["id"]: p for p in pubs}
+    n_merged = 0
+    for drop_id, keep_id in merges.items():
+        if drop_id in by_id and keep_id in by_id:
+            graft(by_id[keep_id]["metadata"], by_id[drop_id]["metadata"])
+            n_merged += 1
+        elif drop_id in by_id or keep_id in by_id:
+            print(f"  WARNING: merge {keep_id} <- {drop_id}: only one record found")
+    pubs = [p for p in pubs if p["id"] not in merges]
+    if n_merged:
+        print(f"  Merged {n_merged} duplicate record(s).")
 
     cutoff = datetime.now().year - COLLAB_YEARS_CUTOFF
 

@@ -14,9 +14,11 @@
 2107.13696   # Recent Progress in Solar Atmospheric Neutrino Searches with IceCube
 1909.03930   # Search for Dark Matter Annihilation to Neutrinos from the Sun
 
-# -- IceCube Upgrade sensitivity ----------------------------------------------
-3067024      # Prospective Sensitivity to WIMP Dark Matter with the IceCube Upgrade (PoS)
-2605.06600   # Sensitivity Projections for Low-Mass Dark Matter Annihilation, IceCube Upgrade
+# -- IceCube Upgrade sensitivity (solar-driven; see merged_records.txt) --------
+# 2507.14943 (Prospective Sensitivity to Solar Dark Matter using the IceCube
+# Upgrade) needs no entry here -- it is a four-author record, so it is never
+# treated as a collaboration paper.
+2605.06600   # Low-Mass Dark Matter Annihilation, IceCube Upgrade (Sun and Galactic Center)
 
 # -- TAMBO --------------------------------------------------------------------
 2507.08070   # TAMBO: A Deep-Valley Neutrino Observatory
