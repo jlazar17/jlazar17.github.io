@@ -19,6 +19,7 @@ from urllib.request import Request, urlopen
 INSPIRE_BAI   = "Jeffrey.Lazar.1"
 HEADERS       = {"User-Agent": "jlazar-website-updater/1.0"}
 OUTPUT        = Path(__file__).resolve().parent.parent / "publications.html"
+JSON_OUTPUT   = Path(__file__).resolve().parent.parent / "publications.json"
 
 # Collaboration papers older than this many years are dropped entirely.
 # Own (few-author) papers are always kept regardless of age.
@@ -447,9 +448,34 @@ def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()
 
     </div>
 </div>
+<script src="terminal.js" defer></script>
 </body>
 </html>
 """
+
+
+def record_json(meta: dict, inspire_id: str, kind: str, featured: set) -> dict:
+    """One publication as plain data, mirroring what pub_html renders."""
+    arxivs   = meta.get("arxiv_eprints", [])
+    arxiv    = arxivs[0].get("value") if arxivs else None
+    collabs  = meta.get("collaborations", [])
+    count    = meta.get("author_count", 0)
+    pub_info = (meta.get("publication_info") or [{}])[0]
+    dois     = meta.get("dois", [])
+    title    = re.sub(r"<[^>]+>", "", clean_title(meta.get("titles", [{}])[0].get("title", "")))
+    return {
+        "id": inspire_id,
+        "year": (meta.get("earliest_date") or "0000")[:4],
+        "title": html.unescape(title),
+        "authors": html.unescape(re.sub(r"<[^>]+>", "", format_authors(
+            [] if (collabs or count > 10) else fetch_authors(inspire_id), collabs, count))),
+        "venue": pub_info.get("journal_title", ""),
+        "arxiv": arxiv,
+        "doi": dois[0].get("value") if dois else None,
+        "collab": bool(collabs) or count > 10,
+        "featured": is_featured(arxiv, inspire_id, featured),
+        "kind": kind,
+    }
 
 
 # ── main ──────────────────────────────────────────────────────────────────────
@@ -501,6 +527,16 @@ def main():
     html = render(papers_by_year, proc_by_year, featured)
     OUTPUT.write_text(html, encoding="utf-8")
     print(f"  Written to {OUTPUT}")
+
+    # The same records as machine-readable data, for the site's terminal.
+    records = []
+    for kind, buckets in (("paper", papers_by_year), ("proceedings", proc_by_year)):
+        for year, pubs_in_year in buckets.items():
+            for pub in pubs_in_year:
+                records.append(record_json(pub["metadata"], pub["id"], kind, featured))
+    records.sort(key=lambda r: (-int(r["year"] or 0), r["title"].lower()))
+    JSON_OUTPUT.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"  Written to {JSON_OUTPUT} ({len(records)} records)")
 
 
 if __name__ == "__main__":

@@ -287,3 +287,31 @@ a:hover {
     .body { padding: 14px 14px 20px; }
     .pub  { grid-template-columns: 44px 1fr; }
 }
+
+/* Interactive prompt */
+.term-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    caret-color: var(--text);
+    padding: 0;
+    min-width: 40%;
+    flex: 1;
+}
+
+.term-hint {
+    color: var(--border);
+    font-size: 12px;
+    margin: 2px 0 0 2px;
+}
+
+.term-out {
+    margin: 2px 0 12px;
+}
+
+.term-out.term-err {
+    color: var(--red);
+}
