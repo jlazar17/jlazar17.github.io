@@ -8,7 +8,9 @@ Usage:
 Requires no third-party libraries (stdlib only).
 """
 
+import html
 import json
+import re
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -128,6 +130,91 @@ def fetch_authors(inspire_id: str) -> list:
     return _get(url).get("metadata", {}).get("authors", [])
 
 
+# INSPIRE returns titles in three flavours: plain text, MathML markup, and raw
+# LaTeX. The first two render fine; the third shows up literally on the page.
+LATEX_SYMBOLS = {
+    r"\chi": "χ", r"\nu": "ν", r"\mu": "μ", r"\tau": "τ", r"\alpha": "α",
+    r"\beta": "β", r"\gamma": "γ", r"\delta": "δ", r"\epsilon": "ε",
+    r"\theta": "θ", r"\lambda": "λ", r"\pi": "π", r"\sigma": "σ",
+    r"\phi": "φ", r"\psi": "ψ", r"\omega": "ω", r"\Omega": "Ω",
+    r"\Delta": "Δ", r"\Lambda": "Λ", r"\Gamma": "Γ", r"\Sigma": "Σ",
+    r"\times": "×", r"\pm": "±", r"\to": "→", r"\rightarrow": "→",
+    r"\ell": "ℓ", r"\bar": "", r"\rm": "", r"\mathrm": "", r"\text": "",
+}
+
+
+def latex_to_html(text: str) -> str:
+    """Convert $...$ spans to HTML. Input must already be escaped."""
+    def convert(m):
+        s = m.group(1)
+        for tex, char in sorted(LATEX_SYMBOLS.items(), key=lambda kv: -len(kv[0])):
+            s = s.replace(tex, char)
+        # LaTeX pads freely around scripts and braces; HTML would show it.
+        s = re.sub(r"\s+([_^])", r"\1", s)
+        # Sub- and superscripts, with or without braces: _{\mu} or ^2
+        s = re.sub(r"_\{\s*([^{}]*?)\s*\}", r"<sub>\1</sub>", s)
+        s = re.sub(r"\^\{\s*([^{}]*?)\s*\}", r"<sup>\1</sup>", s)
+        s = re.sub(r"_(\w)", r"<sub>\1</sub>", s)
+        s = re.sub(r"\^(\w)", r"<sup>\1</sup>", s)
+        return re.sub(r"\s+", " ", re.sub(r"[{}]", "", s)).strip()
+
+    return re.sub(r"\$(.+?)\$", convert, text)
+
+
+def clean_title(title: str) -> str:
+    """Make a title safe to drop into the page, without breaking its markup.
+
+    Titles carrying MathML are passed through -- browsers render it natively --
+    with only bare ampersands escaped. Everything else is fully escaped and then
+    scanned for LaTeX math.
+    """
+    if "<math" in title:
+        # Escape ampersands that do not already begin a character reference.
+        return re.sub(r"&(?!#?\w+;)", "&amp;", title)
+    return latex_to_html(html.escape(title, quote=False))
+
+
+# INSPIRE's collaboration values carry footnote markers and inconsistent casing.
+COLLAB_CANONICAL = {
+    "icecube": "IceCube",
+    "icecube-gen2": "IceCube-Gen2",
+    "km3net": "KM3NeT",
+    "tambo": "TAMBO",
+    "chips": "CHIPS",
+    "hawc": "HAWC",
+    "veritas": "VERITAS",
+    "magic": "MAGIC",
+    "antares": "ANTARES",
+    "fermi-lat": "Fermi-LAT",
+    "h.e.s.s.": "H.E.S.S.",
+    "hess": "H.E.S.S.",
+    "pierre auger": "Pierre Auger",
+    "auger": "Pierre Auger",
+    "telescope array": "Telescope Array",
+    "ligo scientific": "LIGO Scientific",
+    "virgo": "Virgo",
+    "kagra": "KAGRA",
+    "pico": "PICO",
+    "act": "ACT",
+    "svom": "SVOM",
+    "fact": "FACT",
+    "asas-sn": "ASAS-SN",
+    "pan-starrs": "Pan-STARRS",
+}
+
+
+def clean_collaboration(value: str) -> str:
+    """'(IceCube Collaboration)∥' -> 'IceCube'; 'ICECUBE' -> 'IceCube'."""
+    name = re.sub(r"[()]", "", value)
+    # Drop the trailing footnote daggers INSPIRE appends.
+    name = re.sub(r"[^\w\s.\-]+$", "", name).strip()
+    # The word "Collaboration" is added back by the caller. Any digits that
+    # trail it are INSPIRE's ("IceCube collaboration2") -- but digits that are
+    # part of the name are not, so only strip them here. IceCube-Gen2 keeps its 2.
+    name = re.sub(r"\s*collaborations?\d*\s*$", "", name, flags=re.I).strip()
+    return COLLAB_CANONICAL.get(name.lower(), name)
+
+
 def initials(full_name: str) -> str:
     """'Lazar, Jeffrey Phillip' → 'J. P. Lazar'"""
     parts = full_name.split(", ", 1)
@@ -141,12 +228,14 @@ def initials(full_name: str) -> str:
 def format_authors(authors: list, collaborations: list, author_count: int) -> str:
     # Large collaborations or papers with many authors: use collaboration name
     if collaborations and author_count > 10:
-        collab = collaborations[0].get("value", "Collaboration")
-        return f"{collab} Collaboration (incl. J. Lazar)"
+        collab = clean_collaboration(collaborations[0].get("value", ""))
+        if not collab:
+            return "Collaboration (incl. J. Lazar)"
+        return f"{html.escape(collab)} Collaboration (incl. J. Lazar)"
 
     formatted = []
     for i, a in enumerate(authors):
-        name = initials(a.get("full_name", ""))
+        name = html.escape(initials(a.get("full_name", "")))
         if "Lazar" in name:
             name = f"<strong>{name}</strong>"
         formatted.append(name)
@@ -161,7 +250,7 @@ def format_venue(pub_info: list, dois: list) -> str:
     if not pub_info:
         return '<span class="muted">Submitted</span>'
     info = pub_info[0]
-    journal = info.get("journal_title", "")
+    journal = html.escape(info.get("journal_title", ""))
     if not journal:
         return '<span class="muted">Submitted</span>'
     volume = info.get("journal_volume", "")
@@ -181,7 +270,7 @@ def format_venue(pub_info: list, dois: list) -> str:
 
 
 def pub_html(meta: dict, inspire_id: str, featured: set = frozenset()) -> str:
-    title        = meta.get("titles", [{}])[0].get("title", "Untitled")
+    title        = clean_title(meta.get("titles", [{}])[0].get("title", "Untitled"))
     year         = (meta.get("earliest_date") or "0000")[:4]
     arxivs       = meta.get("arxiv_eprints", [])
     arxiv        = arxivs[0].get("value") if arxivs else None
@@ -247,9 +336,16 @@ def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications &mdash; Jeffrey Lazar</title>
+    <meta name="description" content="Publications of Jeffrey P. Lazar in high-energy neutrino astrophysics, generated from INSPIRE-HEP: papers and conference proceedings.">
+    <meta property="og:title" content="Publications &mdash; Jeffrey Lazar">
+    <meta property="og:description" content="Publications of Jeffrey P. Lazar in high-energy neutrino astrophysics, generated from INSPIRE-HEP: papers and conference proceedings.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jefflazaris.online/publications.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -285,7 +381,7 @@ def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()
                 <span class="muted"># full list on
                 <a href="https://inspirehep.net/authors/1771794" target="_blank">INSPIRE-HEP</a>
                 and
-                <a href="https://arxiv.org/search/?searchtype=author&query=Lazar%2C+J" target="_blank">arXiv</a></span>
+                <a href="https://arxiv.org/search/?searchtype=author&amp;query=Lazar%2C+J" target="_blank">arXiv</a></span>
                 <button id="collab-toggle" onclick="toggleCollabs()" class="toggle-btn"></button>
             </div>
             <script>
