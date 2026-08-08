@@ -11,6 +11,7 @@ Requires no third-party libraries (stdlib only).
 import html
 import json
 import re
+import subprocess
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -20,6 +21,12 @@ INSPIRE_BAI   = "Jeffrey.Lazar.1"
 HEADERS       = {"User-Agent": "jlazar-website-updater/1.0"}
 OUTPUT        = Path(__file__).resolve().parent.parent / "publications.html"
 JSON_OUTPUT   = Path(__file__).resolve().parent.parent / "publications.json"
+SITEMAP       = Path(__file__).resolve().parent.parent / "sitemap.xml"
+SITE_URL      = "https://www.jefflazaris.online/"
+
+# Pages worth indexing, in rough order of importance. 404.html is excluded on
+# purpose: it is marked noindex.
+SITEMAP_PAGES = ["index.html", "research.html", "publications.html", "cv.html", "cv.pdf"]
 
 # Collaboration papers older than this many years are dropped entirely.
 # Own (few-author) papers are always kept regardless of age.
@@ -454,6 +461,39 @@ def render(papers_by_year: dict, proc_by_year: dict, featured: set = frozenset()
 """
 
 
+def last_modified(name: str) -> str:
+    """The file's last commit date, falling back to today.
+
+    A fresh CI checkout gives every file the same mtime, so git is the only
+    honest source for this.
+    """
+    root = Path(__file__).resolve().parent.parent
+    try:
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", name],
+            cwd=root, capture_output=True, text=True, timeout=15,
+        )
+        if out.returncode == 0 and out.stdout.strip():
+            return out.stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return datetime.now().strftime("%Y-%m-%d")
+
+
+def write_sitemap() -> None:
+    today = datetime.now().strftime("%Y-%m-%d")
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for name in SITEMAP_PAGES:
+        loc = SITE_URL + ("" if name == "index.html" else name)
+        # This run rewrites publications.html, so its commit date is stale by one.
+        stamp = today if name == "publications.html" else last_modified(name)
+        lines.append(f"  <url><loc>{loc}</loc><lastmod>{stamp}</lastmod></url>")
+    lines.append("</urlset>")
+    SITEMAP.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"  Written to {SITEMAP} ({len(SITEMAP_PAGES)} urls)")
+
+
 def record_json(meta: dict, inspire_id: str, kind: str, featured: set) -> dict:
     """One publication as plain data, mirroring what pub_html renders."""
     arxivs   = meta.get("arxiv_eprints", [])
@@ -537,6 +577,8 @@ def main():
     records.sort(key=lambda r: (-int(r["year"] or 0), r["title"].lower()))
     JSON_OUTPUT.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"  Written to {JSON_OUTPUT} ({len(records)} records)")
+
+    write_sitemap()
 
 
 if __name__ == "__main__":
