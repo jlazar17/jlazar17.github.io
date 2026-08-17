@@ -168,6 +168,18 @@
   "kind": "paper"
  },
  {
+  "id": "3190393",
+  "year": "2026",
+  "title": "SPORE: An Event-Level Sampling Pipeline for Multi-Telescope Neutrino Astronomy",
+  "authors": "J. Lazar, P. Wilmet, G. de Wasseige",
+  "venue": "",
+  "arxiv": "2608.11862",
+  "doi": null,
+  "collab": false,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3167115",
   "year": "2026",
   "title": "Testing Heavy Dark Matter Decay as the Origin of KM3-230213A",
@@ -398,11 +410,11 @@
  {
   "id": "2879384",
   "year": "2025",
-  "title": "Characterizing Candidate Blazar Counterparts of the Ultra-High-Energy Event KM3-230213A",
+  "title": "Characterizing Candidate Blazar Counterparts of the Ultra-high-energy Event KM3-230213A",
   "authors": "KM3NeT Collaboration (incl. J. Lazar)",
-  "venue": "",
+  "venue": "Astron.J.",
   "arxiv": "2502.08484",
-  "doi": null,
+  "doi": "10.3847/1538-3881/ae7a4e",
   "collab": true,
   "featured": false,
   "kind": "paper"
