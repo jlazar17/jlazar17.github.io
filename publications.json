@@ -1,5 +1,17 @@
 [
  {
+  "id": "3197524",
+  "year": "2026",
+  "title": "Astrophysical Sensitivity Projections for the IceCube Upgrade",
+  "authors": "J. Lazar et al.",
+  "venue": "",
+  "arxiv": "2608.28395",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3138958",
   "year": "2026",
   "title": "CORSIKA 8: A general framework for particle cascade simulations",
