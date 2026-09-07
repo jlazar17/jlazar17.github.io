@@ -120,6 +120,18 @@
   "kind": "paper"
  },
  {
+  "id": "3199553",
+  "year": "2026",
+  "title": "KM3NeT/ARCA stacking search for high-energy neutrino point sources: the case of ultra-luminous infrared galaxies and blazars",
+  "authors": "KM3NeT Collaboration (incl. J. Lazar)",
+  "venue": "",
+  "arxiv": "2609.03609",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3123894",
   "year": "2026",
   "title": "Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics (ML-HEQUPP)",
@@ -162,6 +174,18 @@
   "authors": "KM3NeT Collaboration (incl. J. Lazar)",
   "venue": "",
   "arxiv": "2608.06163",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
+  "id": "3197933",
+  "year": "2026",
+  "title": "Searching for Extra Dimensions and Copies of the Standard Model with IceCube",
+  "authors": "IceCube Collaboration (incl. J. Lazar)",
+  "venue": "",
+  "arxiv": "2608.29746",
   "doi": null,
   "collab": true,
   "featured": false,
@@ -806,11 +830,11 @@
  {
   "id": "3006067",
   "year": "2025",
-  "title": "Limiting the Parameter Space for Unstable eV-scale Neutrinos Using IceCube Data",
+  "title": "Limiting the Parameter Space for Unstable eV-Scale Neutrinos Using IceCube Data",
   "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "",
+  "venue": "Phys.Rev.Lett.",
   "arxiv": "2510.00209",
-  "doi": null,
+  "doi": "10.1103/dpjg-54bg",
   "collab": true,
   "featured": false,
   "kind": "paper"
