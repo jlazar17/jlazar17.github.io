@@ -84,6 +84,18 @@
   "kind": "paper"
  },
  {
+  "id": "3202363",
+  "year": "2026",
+  "title": "IceCube neutrino point-source searches in the direction of the KM3NeT ultra-high-energy event",
+  "authors": "J. Lazar et al.",
+  "venue": "",
+  "arxiv": "2609.10931",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3168446",
   "year": "2026",
   "title": "IceCube Real-time Searches for High-energy Neutrinos Coincident with LIGO/Virgo/KAGRA Gravitational-Wave Alerts in O4a",
