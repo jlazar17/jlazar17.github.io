@@ -660,18 +660,6 @@
   "kind": "paper"
  },
  {
-  "id": "3067814",
-  "year": "2025",
-  "title": "Evidence of Neutrino Emission from X-ray Bright Seyfert Galaxies with IceCube",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1219",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2923937",
   "year": "2025",
   "title": "Fast low energy reconstruction using Convolutional Neural Networks",
