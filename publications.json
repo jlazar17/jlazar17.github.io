@@ -132,18 +132,6 @@
   "kind": "paper"
  },
  {
-  "id": "3199553",
-  "year": "2026",
-  "title": "KM3NeT/ARCA stacking search for high-energy neutrino point sources: the case of ultra-luminous infrared galaxies and blazars",
-  "authors": "KM3NeT Collaboration (incl. J. Lazar)",
-  "venue": "",
-  "arxiv": "2609.03609",
-  "doi": null,
-  "collab": true,
-  "featured": false,
-  "kind": "paper"
- },
- {
   "id": "3123894",
   "year": "2026",
   "title": "Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics (ML-HEQUPP)",
@@ -466,18 +454,6 @@
   "collab": true,
   "featured": false,
   "kind": "paper"
- },
- {
-  "id": "3067502",
-  "year": "2025",
-  "title": "Characterizing IceTop response to low-energy air showers",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": "2510.10485",
-  "doi": "10.22323/1.501.0412",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
  },
  {
   "id": "2944718",
@@ -1083,7 +1059,7 @@
   "id": "3067500",
   "year": "2025",
   "title": "Open-source, Cross-detector Comparisons for Machine Learning Reconstructions in Neutrino Telescopes",
-  "authors": "J. Lazar",
+  "authors": "J. Lazar, A. L. Anaya, S. Meighen-Berger, I. Mozún-Mateo, R. Ørsøe, et al.",
   "venue": "PoS",
   "arxiv": null,
   "doi": "10.22323/1.501.1090",
@@ -1318,18 +1294,6 @@
   "collab": true,
   "featured": false,
   "kind": "paper"
- },
- {
-  "id": "3067465",
-  "year": "2025",
-  "title": "Search for High-Energy Neutrinos from Infrared Flares",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1145",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
  },
  {
   "id": "2944838",
