@@ -240,18 +240,6 @@
   "kind": "paper"
  },
  {
-  "id": "3067224",
-  "year": "2025",
-  "title": "12-Years Observation of Seasonal Variation of Atmospheric Neutrino Flux with IceCube",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.0241",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2945000",
   "year": "2025",
   "title": "A co-deployed dust-logging instrument for the IceCube Upgrade and IceCube-Gen2",
@@ -379,18 +367,6 @@
   "venue": "PoS",
   "arxiv": "2507.06312",
   "doi": "10.22323/1.501.0919",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
-  "id": "3067240",
-  "year": "2025",
-  "title": "Analysis of the Galactic Astrophysical Flux with 12.1 Years of IceCube Starting Tracks, Throughgoing Tracks and Cascades",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1135",
   "collab": true,
   "featured": false,
   "kind": "proceedings"
@@ -528,42 +504,6 @@
   "kind": "paper"
  },
  {
-  "id": "3067176",
-  "year": "2025",
-  "title": "Constraints on the Population of Common Sources of Gravitational Waves and High-Energy Neutrinos with IceCube During the Third Observing Run of the LIGO and Virgo Detectors",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": "2512.10707",
-  "doi": "10.22323/1.501.0972",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
-  "id": "3067082",
-  "year": "2025",
-  "title": "Current Status of TAMBO: Realizing PeV Neutrino Astronomy with a Cost-Effective Observatory",
-  "authors": "J. Lazar et al.",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1194",
-  "collab": true,
-  "featured": true,
-  "kind": "proceedings"
- },
- {
-  "id": "3067256",
-  "year": "2025",
-  "title": "Dark matter searches in the Galactic Center with IceCube-DeepCore and IceCube-Upgrade",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.0476",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2944664",
   "year": "2025",
   "title": "Determining the orientation of radio antennas at the South Pole using Galactic noise measurements",
@@ -660,18 +600,6 @@
   "kind": "paper"
  },
  {
-  "id": "3067049",
-  "year": "2025",
-  "title": "Heavy Dark Matter Annihilation search with IceCube tracks",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.0523",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2943594",
   "year": "2025",
   "title": "IceCat-2: Updated IceCube Event Catalog of Alert Tracks",
@@ -727,18 +655,6 @@
   "venue": "PoS",
   "arxiv": "2507.07062",
   "doi": "10.22323/1.501.1029",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
-  "id": "3067093",
-  "year": "2025",
-  "title": "Improved Gamma-Hadron Separation for PeV Photon Searches with IceCube",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": "2507.05833",
-  "doi": "10.22323/1.501.0837",
   "collab": true,
   "featured": false,
   "kind": "proceedings"
@@ -936,18 +852,6 @@
   "kind": "proceedings"
  },
  {
-  "id": "3066995",
-  "year": "2025",
-  "title": "Measuring the galactic plane and searching for galactic PeVatrons using the IceCube Multi-Flavor Astrophysical Neutrino sample",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1193",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2944835",
   "year": "2025",
   "title": "Measuring the Neutrino Flux in Segments along the Galactic Plane with IceCube",
@@ -955,18 +859,6 @@
   "venue": "PoS",
   "arxiv": "2507.08097",
   "doi": "10.22323/1.501.1130",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
-  "id": "3067117",
-  "year": "2025",
-  "title": "Multi-Energy and Multi-Sample Searches for IceCube Neutrinos from LIGO/Virgo/KAGRA Gravitational Wave Events",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.0915",
   "collab": true,
   "featured": false,
   "kind": "proceedings"
@@ -1078,18 +970,6 @@
   "collab": true,
   "featured": false,
   "kind": "paper"
- },
- {
-  "id": "3067003",
-  "year": "2025",
-  "title": "Performance of the Prototype Station of the IceCube Surface Array Enhancement",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": "2510.14636",
-  "doi": "10.22323/1.501.0394",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
  },
  {
   "id": "2954318",
@@ -1236,18 +1116,6 @@
   "kind": "proceedings"
  },
  {
-  "id": "3067058",
-  "year": "2025",
-  "title": "Search for decoherence due to quantum gravity with the IceCube Neutrino Observatory",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": null,
-  "doi": "10.22323/1.501.1081",
-  "collab": true,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
   "id": "2875415",
   "year": "2025",
   "title": "Search for Extremely-High-Energy Neutrinos and First Constraints on the Ultrahigh-Energy Cosmic-Ray Proton Fraction with IceCube",
@@ -1364,18 +1232,6 @@
   "arxiv": "2507.08524",
   "doi": "10.22323/1.501.1091",
   "collab": false,
-  "featured": false,
-  "kind": "proceedings"
- },
- {
-  "id": "3067022",
-  "year": "2025",
-  "title": "Spectrum of PeV Cosmic-Ray Protons and Helium Nuclei with IceCube",
-  "authors": "IceCube Collaboration (incl. J. Lazar)",
-  "venue": "PoS",
-  "arxiv": "2511.05284",
-  "doi": "10.22323/1.501.0376",
-  "collab": true,
   "featured": false,
   "kind": "proceedings"
  },
