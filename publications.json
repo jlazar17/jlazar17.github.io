@@ -134,11 +134,11 @@
  {
   "id": "3123894",
   "year": "2026",
-  "title": "Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics (ML-HEQUPP)",
+  "title": "Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics",
   "authors": "J. Lazar et al.",
-  "venue": "",
+  "venue": "PRX Intell.",
   "arxiv": "2602.22248",
-  "doi": null,
+  "doi": "10.1103/bjx3-vlj8",
   "collab": true,
   "featured": true,
   "kind": "paper"
@@ -168,12 +168,36 @@
   "kind": "paper"
  },
  {
+  "id": "3214086",
+  "year": "2026",
+  "title": "Planck-Scale Constraints on Quantum Gravity-Induced Neutrino Decoherence with IceCube",
+  "authors": "IceCube Collaboration (incl. J. Lazar)",
+  "venue": "",
+  "arxiv": "2610.14144",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3188206",
   "year": "2026",
   "title": "Search for an all-sky and a Galactic Ridge diffuse neutrino emission with the first 2 years of KM3NeT/ARCA data",
   "authors": "KM3NeT Collaboration (incl. J. Lazar)",
   "venue": "",
   "arxiv": "2608.06163",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
+  "id": "3215459",
+  "year": "2026",
+  "title": "Search for High-Energy Neutrinos from Infrared Flares",
+  "authors": "J. Lazar et al.",
+  "venue": "",
+  "arxiv": "2610.20163",
   "doi": null,
   "collab": true,
   "featured": false,
