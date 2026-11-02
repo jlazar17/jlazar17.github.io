@@ -264,6 +264,18 @@
   "kind": "paper"
  },
  {
+  "id": "3220237",
+  "year": "2026",
+  "title": "The TAMBO Project and the TAMBITO Prototype",
+  "authors": "TAMBO Collaboration (incl. J. Lazar)",
+  "venue": "",
+  "arxiv": "2610.38777",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "proceedings"
+ },
+ {
   "id": "3176506",
   "year": "2026",
   "title": "WavePID: low-energy flavor identification using single-PMT time series in IceCube",
