@@ -144,6 +144,18 @@
   "kind": "paper"
  },
  {
+  "id": "3226579",
+  "year": "2026",
+  "title": "Measurement of the Neutrino Spectrum along the Galactic Plane with IceCube",
+  "authors": "IceCube Collaboration (incl. J. Lazar)",
+  "venue": "",
+  "arxiv": "2611.12220",
+  "doi": null,
+  "collab": true,
+  "featured": false,
+  "kind": "paper"
+ },
+ {
   "id": "3185371",
   "year": "2026",
   "title": "Measuring the high-energy neutrino sky using the deep-valley neutrino observatory TAMBO",
