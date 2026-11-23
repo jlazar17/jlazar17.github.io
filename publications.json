@@ -194,11 +194,11 @@
  {
   "id": "3188206",
   "year": "2026",
-  "title": "Search for an all-sky and a Galactic Ridge diffuse neutrino emission with the first 2 years of KM3NeT/ARCA data",
+  "title": "Search for an all-sky and a galactic ridge diffuse neutrino emission with the first 2 years of KM3NeT/ARCA data",
   "authors": "KM3NeT Collaboration (incl. J. Lazar)",
-  "venue": "",
+  "venue": "JCAP",
   "arxiv": "2608.06163",
-  "doi": null,
+  "doi": "10.1088/1475-7516/2026/11/059",
   "collab": true,
   "featured": false,
   "kind": "paper"
